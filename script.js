@@ -207,7 +207,7 @@ function buildCellTypeRows(figureKey, frameIndex) {
   const maxCount = Math.max(1, ...rows.map((row) => row.count || 0));
   return rows
     .map((row) => {
-      const width = row.count === null ? 0 : Math.max(5, Math.round((row.count / maxCount) * 100));
+      const width = row.count === null || row.count <= 0 ? 0 : Math.max(5, Math.round((row.count / maxCount) * 100));
       return `
         <div class="celltype-row">
           <span class="celltype-swatch" style="--celltype-color: ${row.color}"></span>
