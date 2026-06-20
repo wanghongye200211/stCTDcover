@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SpaPOT Results Summary</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#overview" aria-label="SpaPOT results home">
+        <span class="brand-mark"></span>
+        <span>SpaPOT Results</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#overview">Overview</a>
+        <a href="#model">Figure 1</a>
+        <a href="#innovation">Innovation</a>
+        <a href="#route">Route</a>
+        <a href="#evidence">Map</a>
+        <a href="#dynamic">GIFs</a>
+        <a href="#results">Figures</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero section-band" id="overview">
+        <div class="section-inner hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Spatial-potential dynamics summary</p>
+            <h1>SpaPOT Results Summary</h1>
+            <p class="lead">
+              This page organizes the current SpaPOT / stVCR results into a clear paper-style narrative: Figure 1 is the graphical abstract, Figure 2 is the simulation benchmark, Figures 3-5 are three real datasets, and Figure 6 is the model comparison.
+            </p>
+            <div class="hero-tags" aria-label="Key model themes">
+              <span>spatial alignment</span>
+              <span>potential-driven latent dynamics</span>
+              <span>animated trajectory previews</span>
+              <span>critical-window discovery</span>
+            </div>
+            <div class="hero-stats" aria-label="Figure summary">
+              <div>
+                <strong>6</strong>
+                <span>figures</span>
+              </div>
+              <div>
+                <strong>3</strong>
+                <span>real datasets</span>
+              </div>
+              <div>
+                <strong>4</strong>
+                <span>animated trajectories</span>
+              </div>
+            </div>
+          </div>
+          <div class="hero-atlas" id="hero-atlas" aria-label="Figure 1-6 visual atlas"></div>
+        </div>
+      </section>
+
+      <section class="section-band intro-band" aria-labelledby="intro-title">
+        <div class="section-inner intro-grid">
+          <div>
+            <p class="eyebrow">Project question</p>
+            <h2 id="intro-title">From Spatial Slices To Interpretable Developmental Dynamics</h2>
+            <p>
+              Spatial transcriptomic time series are usually observed as discrete slices, while development is continuous and involves spatial migration, cell-state transitions, and mass changes. SpaPOT places spatial position, gene-latent state, growth, and potential landscapes into one dynamical framework to connect observed time points and identify candidate critical transition windows.
+            </p>
+          </div>
+          <div class="intro-points" aria-label="Summary points">
+            <div>
+              <strong>Input</strong>
+              <span>aligned spatial coordinates, gene-prior GAT latent states and time labels</span>
+            </div>
+            <div>
+              <strong>Model</strong>
+              <span>spatial velocity plus gene-latent potential-gradient dynamics</span>
+            </div>
+            <div>
+              <strong>Output</strong>
+              <span>interpolation, fate shifts, potential landscape, perturbation response and critical score</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-band" id="model" aria-labelledby="model-title">
+        <div class="section-inner model-grid">
+          <div class="section-heading">
+            <p class="eyebrow">Figure 1 model overview</p>
+            <h2 id="model-title">SpaPOT Spatial-Potential Model</h2>
+            <p>
+              Figure 1 should serve as the main method overview. It summarizes model inputs, fitted fields, physics-informed training, and critical-biology outputs in one compact visual.
+            </p>
+          </div>
+          <figure class="model-figure">
+            <img src="assets/figure1_model.png" alt="Figure 1 SpaPOT spatial-potential model overview" />
+            <figcaption>
+              <details class="figure-caption">
+                <summary>Figure 1: SpaPOT spatial-potential model for spatial cell-state dynamics</summary>
+                <div class="caption-body">
+                  <p><strong>(1) Graph-prior input.</strong> SpaPOT starts from spatial coordinates, expression states and graph-prior GAT latent representations, so the model input keeps both tissue geometry and gene-network structure.</p>
+                  <p><strong>(2) Fitted spatial-potential field.</strong> The fitted field separates spatial velocity from gene-latent potential-gradient dynamics: spatial motion is modeled as a vector field, while gene-state movement follows a potential landscape.</p>
+                  <p><strong>(3) Physics-informed loss.</strong> Optimal transport matching, GAT reconstruction, mass dynamics and physics residual terms jointly regularize interpolation between observed slices.</p>
+                  <p><strong>(4) Critical biology output.</strong> The output is not only reconstructed intermediate slices; the model also ranks low-gradient, high-action states as candidate critical windows and perturbation-sensitive regions.</p>
+                </div>
+              </details>
+            </figcaption>
+          </figure>
+          <div class="model-notes">
+            <article>
+              <span class="note-index">01</span>
+              <h3>Graph-prior input</h3>
+              <p>Expression states, spatial coordinates, and GAT gene-prior latent states are used jointly, reducing the interpretability gap caused by PCA-only or unstructured latent inputs.</p>
+            </article>
+            <article>
+              <span class="note-index">02</span>
+              <h3>Separate spatial and gene dynamics</h3>
+              <p>Spatial motion is represented by a direct velocity field, while gene-latent dynamics are driven by a potential gradient, avoiding a single mixed velocity vector with weak mechanistic meaning.</p>
+            </article>
+            <article>
+              <span class="note-index">03</span>
+              <h3>Criticality-oriented output</h3>
+              <p>The model is not only used for interpolation; low-gradient and high-action states are translated into candidate critical windows and perturbation-sensitive regions.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-band innovation-band" id="innovation" aria-labelledby="innovation-title">
+        <div class="section-inner">
+          <div class="section-heading narrow">
+            <p class="eyebrow">Innovation</p>
+            <h2 id="innovation-title">Innovation Points</h2>
+            <p>
+              This section follows Figure 1 and states the main methodological innovations before moving into the result figures.
+            </p>
+          </div>
+          <div class="innovation-grid">
+            <article class="innovation-card">
+              <span class="innovation-icon">U</span>
+              <h3>Potential-constrained gene-state dynamics</h3>
+              <p>The potential landscape explains the direction of gene-latent state transitions, turning developmental change from a black-box velocity into a landscape with gradients and critical regions.</p>
+            </article>
+            <article class="innovation-card">
+              <span class="innovation-icon">S</span>
+              <h3>Layered modeling of migration and expression</h3>
+              <p>Spatial coordinates and expression latent states share one temporal trajectory but are governed by distinct mechanisms, making tissue morphology, cell migration, and fate dynamics easier to interpret separately.</p>
+            </article>
+            <article class="innovation-card">
+              <span class="innovation-icon">C</span>
+              <h3>From reconstruction to criticality and perturbation</h3>
+              <p>The result story goes beyond interpolation and reconstruction by adding critical scores, branch sensitivity, gene perturbation, and terminal fate-shift evidence.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-band route-band" id="route" aria-labelledby="route-title">
+        <div class="section-inner">
+          <div class="section-heading narrow">
+            <p class="eyebrow">Evidence route</p>
+            <h2 id="route-title">Six-Figure Manuscript Architecture</h2>
+            <p>
+              The result package is structured as a six-figure story: a graphical abstract, one controlled benchmark, three real biological datasets, and one model-comparison endpoint.
+            </p>
+          </div>
+          <div class="route-grid">
+            <article class="route-card">
+              <span class="route-index">Figure 1</span>
+              <h3>Abstract graphic</h3>
+              <p>The graphical abstract introduces the core problem, model structure, key outputs, and biological interpretation in the first major visual.</p>
+            </article>
+            <article class="route-card">
+              <span class="route-index">Figure 2</span>
+              <h3>Simulation validation</h3>
+              <p>Shows that the model can recover continuous trajectories, cell-type proportions, potential fields, and early-warning-style critical scores in a controlled system.</p>
+            </article>
+            <article class="route-card">
+              <span class="route-index">Figure 3</span>
+              <h3>Mouse midbrain</h3>
+              <p>The main real-data case, connecting slice alignment, generated trajectories, potential landscapes, critical metrics, lineage shifts, and gene perturbation.</p>
+            </article>
+            <article class="route-card">
+              <span class="route-index">Figure 4</span>
+              <h3>Zebrafish</h3>
+              <p>The second real dataset, used to show time-point generation, branch criticality, lineage transition, and functional enrichment.</p>
+            </article>
+            <article class="route-card">
+              <span class="route-index">Figure 5</span>
+              <h3>Axolotl brain</h3>
+              <p>The third real dataset, used to show injury/developmental trajectories, critical scores, EGC-family gene programs, and potential-associated expression.</p>
+            </article>
+            <article class="route-card">
+              <span class="route-index">Figure 6</span>
+              <h3>Model comparison</h3>
+              <p>Summarizes how SpaPOT differs from other methods in prediction, interpolation, alignment, and biological interpretability.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-band evidence-band" id="evidence" aria-labelledby="evidence-title">
+        <div class="section-inner">
+          <div class="section-heading narrow">
+            <p class="eyebrow">Result map</p>
+            <h2 id="evidence-title">Evidence Matrix</h2>
+            <p>
+              The six figures are organized as a manuscript-ready evidence map, linking each dataset to the biological or methodological claim it supports.
+            </p>
+          </div>
+          <div class="evidence-table" id="evidence-table" aria-label="Figure evidence matrix"></div>
+        </div>
+      </section>
+
+      <section class="section-band dynamic-band" id="dynamic" aria-labelledby="dynamic-title">
+        <div class="section-inner">
+          <div class="section-heading narrow">
+            <p class="eyebrow">Data visualization</p>
+            <h2 id="dynamic-title">Simulation And Real-Data Trajectory Panels</h2>
+            <p>
+              The visualization area is separated into one simulation panel and one real-data panel. The real-data panel switches between mouse midbrain, zebrafish, and axolotl brain trajectories while keeping the same play, pause, frame-seeking, and speed controls.
+            </p>
+          </div>
+          <div class="viz-display" id="gif-grid" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section class="section-band results-band" id="results" aria-labelledby="results-title">
+        <div class="section-inner">
+          <div class="section-heading narrow">
+            <p class="eyebrow">Current figures</p>
+            <h2 id="results-title">Figure 1-6 Browser</h2>
+            <p>
+              Each figure entry includes its role in the paper, a time axis, a static preview, and links to animation or PDF assets when available.
+            </p>
+          </div>
+
+          <div class="result-browser">
+            <div class="result-tabs" id="result-tabs" role="tablist" aria-label="Result figure tabs"></div>
+
+            <article class="result-panel" aria-live="polite">
+              <div class="result-copy">
+                <p class="result-kicker" id="result-kicker">Figure 1</p>
+                <h3 id="result-title">Graphical abstract and model overview</h3>
+                <p id="result-body">The graphical abstract introduces the core problem, model structure, and major outputs.</p>
+                <div class="result-evidence" id="result-evidence" aria-label="Selected figure evidence"></div>
+                <div class="result-assets" id="result-assets" aria-label="Selected figure asset status"></div>
+                <div class="result-animation" id="result-animation" aria-label="Selected figure animation metadata"></div>
+                <div class="time-meta" id="result-timepoints"></div>
+                <div class="result-actions">
+                  <a id="result-link" class="pdf-link" href="#" aria-disabled="true">PDF pending</a>
+                  <a id="result-gif-link" class="pdf-link ghost-link" href="#dynamic">View GIF</a>
+                </div>
+              </div>
+              <div class="result-media">
+                <figure class="result-preview">
+                  <img id="result-image" src="assets/figure1_model.png" alt="Figure 1 preview" />
+                </figure>
+                <div class="result-motion" id="result-motion" aria-label="Selected figure motion preview"></div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-band claim-band" aria-labelledby="claim-title">
+        <div class="section-inner claim-grid">
+          <div>
+            <p class="eyebrow">Claim discipline</p>
+            <h2 id="claim-title">Claim Boundaries</h2>
+          </div>
+          <p>
+            Gene perturbation results should be described as model-inferred in silico perturbations, not real CRISPR or in vivo perturbation experiments. If detailed figure pages are added later, this boundary should remain visible near the perturbation-related panels.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <script src="figure-config.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
