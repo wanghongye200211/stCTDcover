@@ -25,6 +25,7 @@ const link = document.querySelector("#result-link");
 const gifLink = document.querySelector("#result-gif-link");
 const timepoints = document.querySelector("#result-timepoints");
 const motionPlayerInstances = new WeakMap();
+const visibleCellTypeLabels = new Map();
 
 function scrollToHashTarget() {
   if (!window.location.hash) return;
@@ -192,11 +193,28 @@ function getCellTypeRows(figureKey, frameIndex) {
   if (!stats) return [];
   const frame = getStatsFrame(figureKey, frameIndex);
   const counts = frame?.counts || {};
-  return (stats.palette || []).map((item) => ({
+  return getVisibleCellTypePalette(figureKey).map((item) => ({
     label: item.label,
     color: item.color || "#64748b",
     count: Number.isFinite(Number(counts[item.label])) ? Number(counts[item.label]) : null,
   }));
+}
+
+function getVisibleCellTypePalette(figureKey) {
+  const stats = motionStats[figureKey];
+  if (!stats) return [];
+  if (!visibleCellTypeLabels.has(figureKey)) {
+    const labels = new Set(
+      (stats.palette || [])
+        .filter((item) =>
+          (stats.frames || []).some((frame) => Number(frame?.counts?.[item.label] || 0) > 0),
+        )
+        .map((item) => item.label),
+    );
+    visibleCellTypeLabels.set(figureKey, labels);
+  }
+  const labels = visibleCellTypeLabels.get(figureKey);
+  return (stats.palette || []).filter((item) => labels.has(item.label));
 }
 
 function buildCellTypeRows(figureKey, frameIndex) {
@@ -333,6 +351,7 @@ class MotionFramePlayer {
     this.speed = 1;
     this.playing = false;
     this.timer = null;
+    this.preloadedFrames = new Map();
     this.image = root.querySelector("[data-frame-image]");
     this.range = root.querySelector("[data-range]");
     this.playButton = root.querySelector("[data-play]");
@@ -361,6 +380,23 @@ class MotionFramePlayer {
     if (this.label) this.label.textContent = getFrameLabel(this.data, this.frameIndex);
     updateCellTypePanel(this.root, this.figureKey, this.frameIndex);
     this.updateLinkedTimeButtons();
+    this.preloadAhead();
+  }
+
+  advanceFrame() {
+    this.setFrame((this.frameIndex + 1) % this.frameCount);
+  }
+
+  preloadAhead(count = 8) {
+    if (!this.data) return;
+    for (let offset = 1; offset <= count; offset += 1) {
+      const index = (this.frameIndex + offset) % this.frameCount;
+      const source = getFrameSource(this.data, index);
+      if (this.preloadedFrames.has(source)) continue;
+      const image = new Image();
+      image.src = source;
+      this.preloadedFrames.set(source, image);
+    }
   }
 
   updateLinkedTimeButtons() {
@@ -377,8 +413,7 @@ class MotionFramePlayer {
     if (!this.playing) return;
 
     this.timer = window.setTimeout(() => {
-      const nextFrame = (this.frameIndex + 1) % this.frameCount;
-      this.setFrame(nextFrame);
+      this.advanceFrame();
       this.scheduleNextFrame();
     }, this.delayMs / this.speed);
   }
@@ -389,6 +424,7 @@ class MotionFramePlayer {
     if (this.playButton) this.playButton.textContent = this.playing ? "Pause" : "Play";
 
     if (this.playing) {
+      this.advanceFrame();
       this.scheduleNextFrame();
     } else {
       window.clearTimeout(this.timer);
