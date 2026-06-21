@@ -1626,21 +1626,21 @@ p {
 
 .result-browser {
   display: grid;
-  grid-template-columns: 248px minmax(0, 1fr);
-  gap: 22px;
+  grid-template-columns: 174px minmax(0, 1fr);
+  gap: 16px;
   align-items: start;
 }
 
 .result-tabs {
   display: grid;
-  gap: 10px;
+  gap: 8px;
 }
 
 .tab-btn {
   display: grid;
-  min-height: 72px;
+  min-height: 54px;
   width: 100%;
-  padding: 14px 16px;
+  padding: 10px 12px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   color: var(--muted);
@@ -1657,14 +1657,19 @@ p {
 
 .tab-btn span {
   color: var(--ink);
-  font-size: 0.98rem;
+  font-size: 0.88rem;
   font-weight: 780;
 }
 
 .tab-btn small {
   margin-top: 4px;
   color: var(--muted);
-  font-size: 0.82rem;
+  font-size: 0.68rem;
+  line-height: 1.25;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .tab-btn.active,
@@ -1681,9 +1686,9 @@ p {
 
 .result-panel {
   display: grid;
-  grid-template-columns: minmax(260px, 0.5fr) minmax(0, 1fr);
-  gap: 24px;
-  padding: 24px;
+  grid-template-columns: minmax(190px, 0.26fr) minmax(0, 1.74fr);
+  gap: 16px;
+  padding: 18px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: rgba(255, 255, 255, 0.8);
@@ -1699,36 +1704,64 @@ p {
 }
 
 .result-copy {
+  display: grid;
+  gap: 11px;
   align-self: start;
 }
 
 .result-copy h3 {
-  margin-bottom: 14px;
-  font-size: 1.42rem;
+  margin-bottom: 2px;
+  font-size: 1.08rem;
+  line-height: 1.25;
 }
 
 .result-evidence,
 .result-assets {
   display: grid;
   gap: 9px;
-  margin-top: 18px;
+  margin-top: 12px;
+}
+
+.result-details {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.74);
+}
+
+.result-details summary {
+  min-height: 42px;
+  padding: 9px 11px;
+  font-size: 0.84rem;
+}
+
+.result-detail-body {
+  display: grid;
+  gap: 11px;
+  padding: 0 11px 12px;
+}
+
+.result-detail-body > p {
+  margin-bottom: 0;
+  font-size: 0.82rem;
+  line-height: 1.5;
 }
 
 .panel-chips,
 .asset-pills {
   display: flex;
   flex-wrap: wrap;
-  gap: 7px;
+  gap: 6px;
 }
 
 .panel-chips span,
 .asset-pills span {
   display: inline-flex;
   align-items: center;
-  min-height: 30px;
-  padding: 5px 9px;
+  min-height: 26px;
+  padding: 4px 8px;
   border-radius: 999px;
-  font-size: 0.78rem;
+  font-size: 0.7rem;
   font-weight: 700;
   line-height: 1.25;
 }
@@ -1761,15 +1794,15 @@ p {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 42px;
-  margin-top: 12px;
-  padding: 10px 15px;
+  min-height: 36px;
+  margin-top: 0;
+  padding: 8px 12px;
   border: 1px solid transparent;
   border-radius: 999px;
   color: #fff;
   background: linear-gradient(135deg, var(--accent), var(--violet));
   box-shadow: 0 10px 28px rgba(63, 111, 216, 0.26);
-  font-size: 0.92rem;
+  font-size: 0.82rem;
   font-weight: 760;
   transition:
     box-shadow 180ms ease,
@@ -1787,7 +1820,7 @@ p {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 14px;
+  margin-top: 0;
 }
 
 .ghost-link {
@@ -1807,7 +1840,6 @@ p {
 
 .result-media {
   display: grid;
-  gap: 14px;
   align-self: stretch;
   min-width: 0;
 }
@@ -1824,7 +1856,7 @@ p {
 
 .result-preview img {
   width: 100%;
-  max-height: 720px;
+  max-height: 920px;
   object-fit: contain;
   object-position: top center;
   background: var(--paper-solid);
