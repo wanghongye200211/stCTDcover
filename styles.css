@@ -1626,21 +1626,21 @@ p {
 
 .result-browser {
   display: grid;
-  grid-template-columns: 174px minmax(0, 1fr);
-  gap: 16px;
+  grid-template-columns: 118px minmax(0, 1fr);
+  gap: 10px;
   align-items: start;
 }
 
 .result-tabs {
   display: grid;
-  gap: 8px;
+  gap: 7px;
 }
 
 .tab-btn {
   display: grid;
-  min-height: 54px;
+  min-height: 42px;
   width: 100%;
-  padding: 10px 12px;
+  padding: 8px 10px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   color: var(--muted);
@@ -1657,19 +1657,13 @@ p {
 
 .tab-btn span {
   color: var(--ink);
-  font-size: 0.88rem;
+  font-size: 0.78rem;
   font-weight: 780;
+  line-height: 1.14;
 }
 
 .tab-btn small {
-  margin-top: 4px;
-  color: var(--muted);
-  font-size: 0.68rem;
-  line-height: 1.25;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
+  display: none;
 }
 
 .tab-btn.active,
@@ -1686,9 +1680,9 @@ p {
 
 .result-panel {
   display: grid;
-  grid-template-columns: minmax(190px, 0.26fr) minmax(0, 1.74fr);
-  gap: 16px;
-  padding: 18px;
+  grid-template-columns: minmax(128px, 0.15fr) minmax(0, 1.85fr);
+  gap: 10px;
+  padding: 14px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: rgba(255, 255, 255, 0.8);
@@ -1705,14 +1699,20 @@ p {
 
 .result-copy {
   display: grid;
-  gap: 11px;
+  gap: 9px;
   align-self: start;
+}
+
+.result-copy .result-kicker {
+  margin-bottom: 0;
+  padding: 5px 8px;
+  font-size: 0.66rem;
 }
 
 .result-copy h3 {
   margin-bottom: 2px;
-  font-size: 1.08rem;
-  line-height: 1.25;
+  font-size: 0.9rem;
+  line-height: 1.2;
 }
 
 .result-evidence,
@@ -1730,21 +1730,27 @@ p {
 }
 
 .result-details summary {
-  min-height: 42px;
-  padding: 9px 11px;
-  font-size: 0.84rem;
+  min-height: 36px;
+  gap: 6px;
+  padding: 7px 8px;
+  font-size: 0.76rem;
+}
+
+.result-details summary::after {
+  padding: 3px 7px;
+  font-size: 0.68rem;
 }
 
 .result-detail-body {
   display: grid;
-  gap: 11px;
-  padding: 0 11px 12px;
+  gap: 9px;
+  padding: 0 8px 10px;
 }
 
 .result-detail-body > p {
   margin-bottom: 0;
-  font-size: 0.82rem;
-  line-height: 1.5;
+  font-size: 0.74rem;
+  line-height: 1.45;
 }
 
 .panel-chips,
@@ -1794,15 +1800,15 @@ p {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 36px;
+  min-height: 32px;
   margin-top: 0;
-  padding: 8px 12px;
+  padding: 7px 10px;
   border: 1px solid transparent;
   border-radius: 999px;
   color: #fff;
   background: linear-gradient(135deg, var(--accent), var(--violet));
   box-shadow: 0 10px 28px rgba(63, 111, 216, 0.26);
-  font-size: 0.82rem;
+  font-size: 0.74rem;
   font-weight: 760;
   transition:
     box-shadow 180ms ease,
