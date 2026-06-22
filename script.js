@@ -20,6 +20,7 @@ const resultEvidence = document.querySelector("#result-evidence");
 const resultAssets = document.querySelector("#result-assets");
 const image = document.querySelector("#result-image");
 const link = document.querySelector("#result-link");
+const resultFigureHashPrefix = "#result-";
 const motionPlayerInstances = new WeakMap();
 const visibleCellTypeLabels = new Map();
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -213,6 +214,13 @@ function setupActiveNavigation() {
 
 function scrollToHashTarget() {
   if (!window.location.hash) return;
+  const resultFigureKey = getResultFigureFromHash();
+  if (resultFigureKey) {
+    setFigure(resultFigureKey, { updateUrl: false });
+    document.querySelector("#results")?.scrollIntoView({ block: "start" });
+    return;
+  }
+
   const motionKey = window.location.hash.replace("#gif-", "");
   if (simulationMotionKeys.includes(motionKey)) {
     selectVizMode("simulation");
@@ -225,6 +233,20 @@ function scrollToHashTarget() {
 
   const target = document.querySelector(window.location.hash);
   if (target) target.scrollIntoView({ block: "start" });
+}
+
+function getResultFigureFromHash() {
+  const hash = window.location.hash || "";
+  if (!hash.startsWith(resultFigureHashPrefix)) return "";
+  const figureKey = decodeURIComponent(hash.slice(resultFigureHashPrefix.length));
+  return figureData[figureKey] ? figureKey : "";
+}
+
+function updateResultFigureHash(figureKey) {
+  if (!figureData[figureKey] || !window.history?.replaceState) return;
+  const nextHash = `${resultFigureHashPrefix}${encodeURIComponent(figureKey)}`;
+  if (window.location.hash === nextHash) return;
+  window.history.replaceState(window.history.state, "", `${window.location.pathname}${window.location.search}${nextHash}`);
 }
 
 function getFrameIndexForTimepoint(data, point, pointIndex) {
@@ -877,7 +899,8 @@ function buildEvidenceTable() {
     .join("");
 }
 
-function setFigure(figureKey) {
+function setFigure(figureKey, options = {}) {
+  const { updateUrl = true } = options;
   const data = figureData[figureKey];
   if (!data) return;
 
@@ -913,10 +936,11 @@ function setFigure(figureKey) {
     link.classList.add("is-disabled");
   }
 
+  if (updateUrl) updateResultFigureHash(figureKey);
 }
 
 function chooseFigure(figureKey, options = {}) {
-  setFigure(figureKey);
+  setFigure(figureKey, { updateUrl: options.updateUrl !== false });
 
   if (options.scrollToResults) {
     const target = document.querySelector("#results");
@@ -1144,7 +1168,9 @@ buildHeroAtlas();
 buildTabs();
 buildEvidenceTable();
 buildGifGrid();
-setFigure(figureKeys[0] || "figure1");
+setFigure(getResultFigureFromHash() || figureKeys[0] || "figure1", {
+  updateUrl: Boolean(getResultFigureFromHash()),
+});
 setupInteractiveSurfaces(document);
 setupRevealEffects(document);
 setupActiveNavigation();
@@ -1152,6 +1178,16 @@ setupActiveNavigation();
 tabsContainer?.addEventListener("click", (event) => {
   const tab = event.target.closest(".tab-btn");
   if (tab) setFigure(tab.dataset.figure);
+});
+
+link?.addEventListener("click", (event) => {
+  if (link.getAttribute("aria-disabled") === "true") {
+    event.preventDefault();
+    return;
+  }
+  const activeTab = document.querySelector(".tab-btn.active");
+  const figureKey = activeTab?.dataset.figure;
+  if (figureKey) updateResultFigureHash(figureKey);
 });
 
 bindFigurePicker(heroAtlas);

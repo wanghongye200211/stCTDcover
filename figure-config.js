@@ -22,7 +22,7 @@ window.SpaPOT_FIGURES = {
       "The graphical abstract introduces the core problem, model structure, major outputs, and biological interpretation in a single opening visual.",
     preview: "assets/figure1_model.png",
     gif: "",
-    pdf: "",
+    pdf: "assets/pdfs/figure1.pdf",
     alt: "Figure 1 SpaPOT graphical abstract placeholder",
     evidence: ["model logic", "input-output structure", "criticality readout"],
     animation: [],
