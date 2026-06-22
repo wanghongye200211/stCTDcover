@@ -616,11 +616,15 @@ p {
   max-height: 500px;
   object-fit: contain;
   object-position: center;
-  transition: transform 260ms ease;
+  cursor: zoom-in;
+  transition:
+    filter 220ms ease,
+    transform 300ms ease;
 }
 
 .atlas-feature:hover .atlas-feature-media img {
-  transform: scale(1.012);
+  filter: saturate(1.04) contrast(1.02);
+  transform: scale(1.035);
 }
 
 .atlas-strip {
@@ -677,10 +681,13 @@ p {
   object-fit: contain;
   object-position: center;
   background: var(--paper-solid);
-  transition: transform 220ms ease;
+  transition:
+    filter 180ms ease,
+    transform 220ms ease;
 }
 
 .atlas-card:hover .atlas-media img {
+  filter: saturate(1.04) contrast(1.02);
   transform: scale(1.035);
 }
 
@@ -796,7 +803,10 @@ p {
 .model-figure img {
   width: 100%;
   background: var(--paper-solid);
-  transition: transform 260ms ease;
+  cursor: zoom-in;
+  transition:
+    filter 220ms ease,
+    transform 300ms ease;
 }
 
 .model-figure:hover {
@@ -806,7 +816,8 @@ p {
 }
 
 .model-figure:hover img {
-  transform: scale(1.01);
+  filter: saturate(1.04) contrast(1.02);
+  transform: scale(1.035);
 }
 
 .model-figure figcaption {
@@ -989,6 +1000,16 @@ p {
   max-height: 560px;
   object-fit: contain;
   background: #fff;
+  cursor: zoom-in;
+  transform-origin: center;
+  transition:
+    filter 220ms ease,
+    transform 260ms ease;
+}
+
+.downstream-card:hover .downstream-media img {
+  filter: saturate(1.04) contrast(1.02);
+  transform: scale(1.045);
 }
 
 .downstream-card-copy {
@@ -2056,7 +2077,11 @@ p {
   object-fit: contain;
   object-position: top center;
   background: var(--paper-solid);
-  transition: transform 260ms ease;
+  cursor: zoom-in;
+  transform-origin: center top;
+  transition:
+    filter 220ms ease,
+    transform 300ms ease;
 }
 
 .result-preview:hover {
@@ -2065,7 +2090,8 @@ p {
 }
 
 .result-preview:hover img {
-  transform: scale(1.012);
+  filter: saturate(1.04) contrast(1.02);
+  transform: scale(1.04);
 }
 
 .motion-header {
