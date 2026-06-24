@@ -21,6 +21,7 @@ const resultEvidence = document.querySelector("#result-evidence");
 const resultAssets = document.querySelector("#result-assets");
 const image = document.querySelector("#result-image");
 const link = document.querySelector("#result-link");
+const resultPanel = document.querySelector(".result-panel");
 const resultFigureHashPrefix = "#result-";
 const motionPlayerInstances = new WeakMap();
 const visibleCellTypeLabels = new Map();
@@ -927,6 +928,7 @@ function setFigure(figureKey, options = {}) {
   }
   resultEvidence.innerHTML = buildEvidenceMeta(data);
   resultAssets.innerHTML = buildAssetMeta(data);
+  if (resultPanel) resultPanel.dataset.activeFigure = figureKey;
   image.src = data.preview;
   image.alt = data.alt || `${data.kicker} preview`;
 
@@ -992,27 +994,30 @@ function buildVizModeToggle() {
   ];
 
   return `
-    <div class="viz-mode-toggle" role="tablist" aria-label="Trajectory visualization mode">
-      ${modes
-        .map((mode) => {
-          const isActive = activeVizMode === mode.key;
-          return `
-            <button
-              class="viz-mode-button ${isActive ? "active" : ""}"
-              type="button"
-              role="tab"
-              aria-selected="${isActive}"
-              data-viz-mode="${mode.key}"
-            >
-              <span class="viz-mode-icon">${renderIcon(mode.icon)}</span>
-              <span class="viz-mode-text">
-                <strong>${mode.label}</strong>
-                <small>${mode.caption}</small>
-              </span>
-            </button>
-          `;
-        })
-        .join("")}
+    <div class="viz-mode-shell">
+      <span class="viz-mode-label">View mode</span>
+      <div class="viz-mode-toggle" role="tablist" aria-label="Trajectory visualization mode">
+        ${modes
+          .map((mode) => {
+            const isActive = activeVizMode === mode.key;
+            return `
+              <button
+                class="viz-mode-button ${isActive ? "active" : ""}"
+                type="button"
+                role="tab"
+                aria-selected="${isActive}"
+                data-viz-mode="${mode.key}"
+              >
+                <span class="viz-mode-icon">${renderIcon(mode.icon)}</span>
+                <span class="viz-mode-text">
+                  <strong>${mode.label}</strong>
+                  <small>${mode.caption}</small>
+                </span>
+              </button>
+            `;
+          })
+          .join("")}
+      </div>
     </div>
   `;
 }
@@ -1103,16 +1108,21 @@ function buildSimulationViz() {
   return `
     <article class="viz-column simulation-viz">
       <div class="viz-section-header">
-        <div class="viz-title-row">
-          <div>
+        <div class="viz-control-panel">
+          <div class="viz-heading-block">
             <span class="viz-section-label">Simulation</span>
-            <h3 data-simulation-viz-title>${activeData.title}</h3>
-            <p>Select one synthetic trajectory for the interactive motion panel.</p>
+            <div>
+              <h3 data-simulation-viz-title>${activeData.title}</h3>
+              <p>Switch between synthetic trajectories and inspect frame-by-frame spatial motion.</p>
+            </div>
           </div>
           ${buildVizModeToggle()}
         </div>
-        <div class="real-viz-options" role="tablist" aria-label="Simulation trajectory selector">
-          ${buildMotionOptions(simulationMotionKeys, activeSimulationKey, "data-simulation-figure")}
+        <div class="viz-option-bar">
+          <span class="viz-option-label">Synthetic tracks</span>
+          <div class="real-viz-options" role="tablist" aria-label="Simulation trajectory selector">
+            ${buildMotionOptions(simulationMotionKeys, activeSimulationKey, "data-simulation-figure")}
+          </div>
         </div>
       </div>
       <div class="real-viz-detail" id="simulation-viz-detail" data-simulation-detail aria-live="polite">
@@ -1127,16 +1137,21 @@ function buildRealViz() {
   return `
     <article class="viz-column real-viz">
       <div class="viz-section-header">
-        <div class="viz-title-row">
-          <div>
+        <div class="viz-control-panel">
+          <div class="viz-heading-block">
             <span class="viz-section-label">Real datasets</span>
-            <h3 data-real-viz-title>${activeRealData.title}</h3>
-            <p>Select one biological system for the same trajectory player.</p>
+            <div>
+              <h3 data-real-viz-title>${activeRealData.title}</h3>
+              <p>Switch between biological systems while keeping the same playback, zoom and timeline controls.</p>
+            </div>
           </div>
           ${buildVizModeToggle()}
         </div>
-        <div class="real-viz-options" role="tablist" aria-label="Real dataset trajectory selector">
-          ${buildMotionOptions(realFigureKeys, activeRealFigureKey, "data-real-figure")}
+        <div class="viz-option-bar">
+          <span class="viz-option-label">Biological systems</span>
+          <div class="real-viz-options" role="tablist" aria-label="Real dataset trajectory selector">
+            ${buildMotionOptions(realFigureKeys, activeRealFigureKey, "data-real-figure")}
+          </div>
         </div>
       </div>
       <div class="real-viz-detail" id="real-viz-detail" data-real-detail aria-live="polite">
