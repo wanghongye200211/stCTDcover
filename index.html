@@ -97,12 +97,11 @@
             <img src="assets/figure1_model.png" alt="Figure 1 SpaPOT spatial-potential model overview" />
             <figcaption>
               <details class="figure-caption">
-                <summary>Figure 1: SpaPOT spatial-potential model for spatial cell-state dynamics</summary>
+                <summary>SpaPOT spatial-potential model for spatial cell-state dynamics</summary>
                 <div class="caption-body">
-                  <p><strong>(1) Graph-prior input.</strong> SpaPOT starts from spatial coordinates, expression states and graph-prior GAT latent representations, so the model input keeps both tissue geometry and gene-network structure.</p>
-                  <p><strong>(2) Fitted spatial-potential field.</strong> The fitted field separates spatial velocity from gene-latent potential-gradient dynamics: spatial motion is modeled as a vector field, while gene-state movement follows a potential landscape.</p>
-                  <p><strong>(3) Physics-informed loss.</strong> Optimal transport matching, GAT reconstruction, mass dynamics and physics residual terms jointly regularize interpolation between observed slices.</p>
-                  <p><strong>(4) Critical biology output.</strong> The output is not only reconstructed intermediate slices; the model also ranks low-gradient, high-action states as candidate critical windows and perturbation-sensitive regions.</p>
+                  <p><strong>a, Dynamic spatial transcriptomics.</strong> Observed slices, generated snapshots and continuous trajectories summarize the biological transition problem.</p>
+                  <p><strong>b, Training SpaPOT.</strong> Spatial coordinates, graph-prior gene embeddings and time labels feed the spatial-potential transport equation and its matching, spatial, physical and dynamic losses.</p>
+                  <p><strong>c, Downstream readouts.</strong> The fitted fields support spatial slice generation, lineage inference, critical-point warning and perturbed gene-program interpretation.</p>
                 </div>
               </details>
             </figcaption>
@@ -337,7 +336,7 @@
       </section>
     </main>
 
-    <script src="figure-config.js?v=20260624a"></script>
+    <script src="figure-config.js?v=20260624b"></script>
     <script src="motion-stats.js?v=20260621b"></script>
     <script src="script.js?v=20260622h"></script>
   </body>
