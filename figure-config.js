@@ -22,9 +22,9 @@ window.SpaPOT_FIGURES = {
       "The graphical abstract introduces the core problem, model structure, major outputs, and biological interpretation in a single opening visual.",
     legend:
       "Fig. 1: SpaPOT graphical abstract and model overview. a. Discrete spatial transcriptomic snapshots are connected as a continuous tissue trajectory; observed slices and generated snapshots are separated in the schematic, and the dynamic paths highlight a candidate transition point. b. Training framework for SpaPOT: spatial coordinates, graph-prior gene embeddings and time labels feed the spatial-potential transport equation, which learns spatial velocity, gene-latent potential, growth or decay, and an optimization objective combining matching, spatial, physical and dynamic losses. c. Downstream analyses and applications, including generated spatial slices, lineage inference, critical-point warning, and perturbed gene-program interpretation.",
-    preview: "assets/figure1_model.png",
+    preview: "assets/figure1_model.png?v=20260710",
     gif: "",
-    pdf: "assets/pdfs/figure1.pdf",
+    pdf: "assets/pdfs/figure1.pdf?v=20260710",
     alt: "Figure 1 SpaPOT graphical abstract placeholder",
     evidence: ["model logic", "input-output structure", "criticality readout"],
     animation: [],
@@ -65,10 +65,10 @@ window.SpaPOT_FIGURES = {
       "Mouse dorsal midbrain is the main real-data case, linking spatial alignment, generated trajectories, potential landscapes, critical metrics, lineage shifts, and gene perturbation.",
     legend:
       "Fig. 3: SpaPOT reconstructs mouse dorsal midbrain dynamics. a. Before- and after-alignment views of E12.5, E14.5 and E16.5 dorsal midbrain slices, with RGC, NeuB and GlioB annotations. b. Three-dimensional space-time trajectory combining observed slices and generated intermediate slices across embryonic time. c. Gene-latent potential landscape and state structure inferred from the fitted spatial-potential field. d. Critical-window metrics combining the SpaPOT score with the DNB score over embryonic time. e. Model-inferred RGC-origin fate allocation across staged time points, displayed as an alluvial flow summary. f. Observed and predicted cell-count summaries for RGC, NeuB and GlioB states. g. State-associated marker-gene heatmap supporting the RGC, NeuB and GlioB interpretation. h. Efna5 and Fzd3 in silico perturbation rollouts and dose-response summaries. i. Mechanistic pathway diagrams linking the selected perturbation genes with downstream GlioB and NeuB response routes.",
-    preview: "assets/figure3_preview.png",
+    preview: "assets/figure3_preview.png?v=20260710",
     gif: "assets/gifs/figure3_mouse_midbrain.gif",
     frames: { base: "assets/frames/figure3/frame_", count: 81, delayMs: 220, start: 12.5, end: 16.5, step: 0.05 },
-    pdf: "assets/pdfs/figure3.pdf",
+    pdf: "assets/pdfs/figure3.pdf?v=20260710",
     alt: "Figure 3 mouse dorsal midbrain preview",
     evidence: ["main real-data reconstruction", "critical windows", "lineage and perturbation signals"],
     animation: [
@@ -89,10 +89,10 @@ window.SpaPOT_FIGURES = {
       "The zebrafish dataset is used to show time-point generation, branch criticality, lineage transition, and functional enrichment.",
     legend:
       "Fig. 4: SpaPOT reconstructs zebrafish developmental dynamics. a. Observed and generated ZESTA embryo frames from 10 to 18 hpf, with real anchors and generated intervals distinguished by border style. b. Critical-score and DNB-score curves for the fitted developmental trajectory. c. Spatial descendant frames for a selected 10 hpf source branch propagated through generated and observed stages. d. Branch-lineage alluvial summary linking the selected source branch to later neural and mesodermal annotations. e. Branch-specific criticality readout for a terminal-fate branch. f. Spatial frames for the terminal branch across generated and observed stages. g. Terminal-branch lineage alluvial summary connecting axial, notochord and blood or vascular outcomes. h. Spatial-speed vector field and state-specific speed distribution for major terminal groups. i. Row-scaled enrichment heatmap for branch-associated developmental programmes. j. GO-term summaries for candidate gene sets captured by the selected branch analyses.",
-    preview: "assets/figure4_preview.png",
+    preview: "assets/figure4_preview.png?v=20260710",
     gif: "assets/gifs/figure4_zebrafish.gif",
     frames: { base: "assets/frames/figure4/frame_", count: 81, delayMs: 220, start: 10, end: 18, step: 0.1 },
-    pdf: "assets/pdfs/figure4.pdf",
+    pdf: "assets/pdfs/figure4.pdf?v=20260710",
     alt: "Figure 4 zebrafish developmental dynamics preview",
     evidence: ["cross-system generation", "branch criticality", "terminal fate interpretation"],
     animation: [
@@ -113,10 +113,10 @@ window.SpaPOT_FIGURES = {
       "The axolotl brain injury-response dataset is used to show spatial alignment, generated slices, critical scores, EGC-family gene programs, and potential-associated expression trends.",
     legend:
       "Fig. 5: SpaPOT reconstructs axolotl brain injury-response dynamics. a. ARTISTA slices before and after alignment for injured axolotl brain, preserving the 2, 5, 10, 15 and 20 DPI injury stages. b. Observed real slices and generated slices across the injury-response trajectory, with cell-type colors and border styles separating real and generated time points. c. Warning-score curves for reaEGC and VLMC/CMPN-associated responses over DPI. d. Spatial maps of reaEGC and VLMC score changes at selected DPI, localizing the periods highlighted by panel c. e. Cell-count trajectories for EGC, proliferative and vascular-associated states across injury time. f. Differential-expression volcano plot comparing reaEGC and wntEGC. g. Marker-gene dot plot summarizing cell-type identity and expression programs across the selected states. h. Potential-ordered gene-expression curves for selected EGC/EX-associated genes.",
-    preview: "assets/figure5_preview.png?v=20260624b",
+    preview: "assets/figure5_preview.png?v=20260710",
     gif: "assets/gifs/figure5_axolotl.gif",
     frames: { base: "assets/frames/figure5/frame_", count: 181, delayMs: 220, start: 2, end: 20, step: 0.1 },
-    pdf: "assets/pdfs/figure5.pdf",
+    pdf: "assets/pdfs/figure5.pdf?v=20260710",
     alt: "Figure 5 axolotl brain injury-response dynamics preview",
     evidence: ["injury-response trajectory", "EGC-family programs", "potential-linked expression"],
     animation: [
