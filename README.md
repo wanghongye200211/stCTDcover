@@ -1,6 +1,8 @@
-# SpaPOT Results Frontend
+# stCTD Interactive Explainer
 
-This folder contains a static English-only results summary page for the SpaPOT / stVCR project.
+This folder contains the static English-only results and methods explainer for stCTD, the Spatiotemporal Critical Transition Decipherer.
+
+GitHub project: `wanghongye200211/stCTDcover`
 
 Open `index.html` in a browser to view the page. The page is organized around the current six-figure manuscript structure:
 

@@ -144,11 +144,11 @@ img {
 }
 
 .brand-mark {
-  width: 46px;
-  height: 46px;
-  padding: 3px;
+  width: 54px;
+  height: 54px;
+  padding: 0;
   border: 1px solid rgba(63, 111, 216, 0.12);
-  border-radius: 14px;
+  border-radius: 12px;
   object-fit: contain;
   background: rgba(255, 255, 255, 0.86);
   filter: drop-shadow(0 8px 16px rgba(63, 111, 216, 0.18));
@@ -282,12 +282,17 @@ section[id] {
 }
 
 .hero-logo-lockup {
-  width: 92px;
+  width: min(250px, 68%);
+  height: 184px;
+  overflow: hidden;
+  margin: -20px 0 -12px;
 }
 
 .hero-logo-lockup img {
   width: 100%;
+  max-width: none;
   height: auto;
+  transform: translateY(-18px);
   filter: drop-shadow(0 18px 34px rgba(63, 111, 216, 0.13));
 }
 
@@ -325,7 +330,7 @@ h1 {
   word-break: keep-all;
 }
 
-.spapot-wordmark {
+.stctd-wordmark {
   display: inline-block;
   background:
     linear-gradient(100deg, #0649bf 0%, #1aa6dd 35%, #7b59da 62%, #ca3ec7 100%);
@@ -1899,7 +1904,8 @@ p {
 }
 
 .innovation-card {
-  min-height: 260px;
+  --innovation-color: var(--accent);
+  min-height: 248px;
   padding: 24px;
 }
 
@@ -1911,21 +1917,47 @@ p {
   bottom: 18px;
   width: 3px;
   border-radius: 999px;
-  background: linear-gradient(180deg, var(--cyan), var(--bio));
+  background: linear-gradient(180deg, var(--innovation-color), var(--bio));
 }
 
 .innovation-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  margin-bottom: 20px;
-  border: 1px solid rgba(63, 111, 216, 0.16);
-  border-radius: 50%;
-  color: var(--accent-deep);
-  background: var(--accent-soft);
-  font-weight: 850;
+  width: 50px;
+  height: 50px;
+  margin-bottom: 18px;
+  border: 1px solid color-mix(in srgb, var(--innovation-color) 22%, transparent);
+  border-radius: 8px;
+  color: var(--innovation-color);
+  background: linear-gradient(145deg, rgba(234, 241, 255, 0.94), rgba(234, 247, 240, 0.78));
+  box-shadow: 0 10px 24px color-mix(in srgb, var(--innovation-color) 12%, transparent);
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.innovation-card:nth-child(2) {
+  --innovation-color: var(--cyan);
+}
+
+.innovation-card:nth-child(3) {
+  --innovation-color: var(--violet);
+}
+
+.innovation-icon svg {
+  width: 29px;
+  height: 29px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.innovation-card:hover .innovation-icon {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 14px 28px color-mix(in srgb, var(--innovation-color) 18%, transparent);
 }
 
 .results-band {
@@ -2814,7 +2846,13 @@ p {
   }
 
   .hero-logo-lockup {
-    width: 76px;
+    width: 190px;
+    height: 140px;
+    margin: -14px 0 -8px;
+  }
+
+  .hero-logo-lockup img {
+    transform: translateY(-13px);
   }
 
   h1 {

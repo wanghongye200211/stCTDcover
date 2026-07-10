@@ -3,17 +3,21 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>SpaPOT Interactive Explainer</title>
-    <link rel="icon" type="image/png" href="assets/spapot_logo_mark.png" />
-    <link rel="stylesheet" href="styles.css?v=20260624c" />
+    <title>Spatiotemporal Critical Transition Decipherer (stCTD)</title>
+    <meta
+      name="description"
+      content="stCTD reconstructs continuous single-cell spatiotemporal dynamics and deciphers critical transition points from discrete spatial-transcriptomic snapshots."
+    />
+    <link rel="icon" type="image/png" href="assets/stctd_logo_full.png?v=20260710b" />
+    <link rel="stylesheet" href="styles.css?v=20260710b" />
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="#overview" aria-label="SpaPOT explainer home">
-        <img class="brand-mark" src="assets/spapot_logo_mark.png" alt="" aria-hidden="true" />
+      <a class="brand" href="#overview" aria-label="stCTD explainer home">
+        <img class="brand-mark" src="assets/stctd_logo_full.png?v=20260710b" alt="" aria-hidden="true" />
         <span class="brand-text">
-          <strong>SpaPOT</strong>
-          <small>Interactive explainer</small>
+          <strong>stCTD</strong>
+          <small>Critical transition decipherer</small>
         </span>
       </a>
       <nav class="nav-links" aria-label="Primary navigation">
@@ -31,20 +35,20 @@
       <section class="hero section-band" id="overview">
         <div class="section-inner hero-shell">
           <div class="hero-copy">
-            <div class="hero-logo-lockup" aria-label="SpaPOT logo">
-              <img src="assets/spapot_logo_mark.png" alt="SpaPOT logo" />
+            <div class="hero-logo-lockup" aria-label="stCTD logo">
+              <img src="assets/stctd_logo_full.png?v=20260710b" alt="stCTD logo" />
             </div>
-            <p class="eyebrow">Spatial Potential Optimal Transport</p>
-            <h1><span class="spapot-wordmark">SpaPOT</span></h1>
-            <p class="hero-subtitle">A spatial-potential model for continuous tissue dynamics</p>
+            <p class="eyebrow">Spatiotemporal Critical Transition Decipherer (stCTD)</p>
+            <h1 class="visually-hidden"><span class="stctd-wordmark">stCTD</span></h1>
+            <p class="hero-subtitle">Generative reconstruction and critical-transition decoding</p>
             <p class="lead">
-              A compact visual guide to SpaPOT: continuous spatial-transcriptomic dynamics, potential-guided cell-state motion, and interpretable transition signals across simulation and biological datasets.
+              stCTD, a Spatiotemporal Critical Transition Decipherer, is a generative deep learning model designed to reconstruct continuous single-cell spatiotemporal dynamics from discrete time-series snapshots of spatial transcriptomics and decipher critical transition points underlying cell-state changes.
             </p>
             <div class="hero-tags" aria-label="Key model themes">
-              <span>spatial optimal transport</span>
-              <span>gene-latent potential field</span>
-              <span>growth-aware dynamics</span>
-              <span>critical transition windows</span>
+              <span>generative deep learning</span>
+              <span>continuous spatial dynamics</span>
+              <span>cell-state transitions</span>
+              <span>critical-point deciphering</span>
             </div>
             <div class="hero-actions" aria-label="Primary sections">
               <a href="#model">Model overview</a>
@@ -52,7 +56,7 @@
               <a href="#results">Static figures</a>
             </div>
           </div>
-          <div class="hero-atlas" id="hero-atlas" aria-label="SpaPOT visual overview"></div>
+          <div class="hero-atlas" id="hero-atlas" aria-label="stCTD visual overview"></div>
         </div>
       </section>
 
@@ -63,7 +67,7 @@
             <p class="eyebrow">Project question</p>
             <h2 id="intro-title">From Spatial Slices To Interpretable Developmental Dynamics</h2>
             <p>
-              Spatial transcriptomic time series are usually observed as discrete slices, while development is continuous and involves spatial migration, cell-state transitions, and mass changes. SpaPOT places spatial position, gene-latent state, growth, and potential landscapes into one dynamical framework to connect observed time points and identify candidate critical transition windows.
+              Spatial transcriptomic time series are usually observed as discrete slices, while development is continuous and involves spatial migration, cell-state transitions, and mass changes. stCTD places spatial position, gene-latent state, growth, and potential landscapes into one dynamical framework to connect observed time points and identify candidate critical transition windows.
             </p>
           </div>
           <div class="intro-points" aria-label="Summary points">
@@ -88,19 +92,19 @@
         <div class="section-inner model-grid">
           <div class="section-heading">
             <p class="eyebrow">Model overview</p>
-            <h2 id="model-title">SpaPOT Spatial-Potential Model</h2>
+            <h2 id="model-title">stCTD Generative Dynamics Model</h2>
             <p>
               The opening model graphic summarizes model inputs, fitted fields, physics-informed training, and critical-biology outputs in one compact visual.
             </p>
           </div>
           <figure class="model-figure figure-one-model">
-            <img src="assets/figure1_model.png?v=20260710" alt="Figure 1 SpaPOT spatial-potential model overview" />
+            <img src="assets/figure1_model.png?v=20260710" alt="stCTD graphical abstract and generative dynamics model" />
             <figcaption>
               <details class="figure-caption">
-                <summary>SpaPOT spatial-potential model for spatial cell-state dynamics</summary>
+                <summary>stCTD model for continuous spatial cell-state dynamics</summary>
                 <div class="caption-body">
                   <p><strong>a. Dynamic spatial transcriptomics.</strong> Observed slices, generated snapshots and continuous trajectories summarize the biological transition problem.</p>
-                  <p><strong>b. Training SpaPOT.</strong> Spatial coordinates, graph-prior gene embeddings and time labels feed the spatial-potential transport equation and its matching, spatial, physical and dynamic losses.</p>
+                  <p><strong>b. Training stCTD.</strong> Spatial coordinates, graph-prior gene embeddings and time labels feed the spatial-potential transport equation and its matching, spatial, physical and dynamic losses.</p>
                   <p><strong>c. Downstream readouts.</strong> The fitted fields support spatial slice generation, lineage inference, critical-point warning and perturbed gene-program interpretation.</p>
                 </div>
               </details>
@@ -132,22 +136,41 @@
             <p class="eyebrow">Innovation</p>
             <h2 id="innovation-title">Innovation Points</h2>
             <p>
-              This section follows the model overview and states the main methodological innovations before moving into the result figures.
+              Three linked design choices enable stCTD to move from snapshot reconstruction to interpretable detection of cell-state transitions.
             </p>
           </div>
           <div class="innovation-grid">
             <article class="innovation-card">
-              <span class="innovation-icon">U</span>
+              <span class="innovation-icon" aria-hidden="true">
+                <svg viewBox="0 0 32 32">
+                  <path d="M4 24c5-10 9-4 13-12s7-4 11-8" />
+                  <path d="M4 27h24" />
+                  <circle cx="17" cy="12" r="2.4" />
+                </svg>
+              </span>
               <h3>Potential-constrained gene-state dynamics</h3>
               <p>The potential landscape explains the direction of gene-latent state transitions, turning developmental change from a black-box velocity into a landscape with gradients and critical regions.</p>
             </article>
             <article class="innovation-card">
-              <span class="innovation-icon">S</span>
+              <span class="innovation-icon" aria-hidden="true">
+                <svg viewBox="0 0 32 32">
+                  <path d="M5 9c5-5 9-5 13 0s6 5 9 1" />
+                  <path d="M5 23c5-5 9-5 13 0s6 5 9 1" />
+                  <circle cx="8" cy="7" r="2" />
+                  <circle cx="24" cy="24" r="2" />
+                </svg>
+              </span>
               <h3>Layered modeling of migration and expression</h3>
               <p>Spatial coordinates and expression latent states share one temporal trajectory but are governed by distinct mechanisms, making tissue morphology, cell migration, and fate dynamics easier to interpret separately.</p>
             </article>
             <article class="innovation-card">
-              <span class="innovation-icon">C</span>
+              <span class="innovation-icon" aria-hidden="true">
+                <svg viewBox="0 0 32 32">
+                  <path d="M4 23h6l3-7 4 11 4-18 3 8h4" />
+                  <path d="M21 5v22" />
+                  <circle cx="21" cy="9" r="2.4" />
+                </svg>
+              </span>
               <h3>From reconstruction to criticality and perturbation</h3>
               <p>The result story goes beyond interpolation and reconstruction by adding critical scores, branch sensitivity, gene perturbation, and terminal fate-shift evidence.</p>
             </article>
@@ -174,7 +197,7 @@
             <p class="eyebrow">Downstream interpretation</p>
             <h2 id="downstream-title">Downstream Biological Readouts</h2>
             <p>
-              SpaPOT turns reconstructed trajectories into lineage, critical-window, mechanism, and perturbation readouts.
+              stCTD turns reconstructed trajectories into lineage, critical-window, mechanism, and perturbation readouts.
             </p>
           </div>
           <div class="downstream-panels" aria-label="Downstream analysis panels">
@@ -207,7 +230,7 @@
               </figure>
               <div class="downstream-card-copy">
                 <h3>Model-derived response screens</h3>
-                <p>In silico perturbation panels summarise how selected gene shifts alter terminal-state probabilities and branch allocation in the learned SpaPOT state space.</p>
+                <p>In silico perturbation panels summarise how selected gene shifts alter terminal-state probabilities and branch allocation in the learned stCTD state space.</p>
                 <a href="downstream_normalized/perturbation.pdf">Open PDF</a>
               </div>
             </article>
@@ -304,7 +327,7 @@
             <article class="route-card">
               <span class="route-index">Figure 6</span>
               <h3>Model comparison</h3>
-              <p>Summarizes how SpaPOT differs from other methods in prediction, interpolation, alignment, and biological interpretability.</p>
+              <p>Summarizes how stCTD differs from other methods in prediction, interpolation, alignment, and biological interpretability.</p>
             </article>
           </div>
         </div>
@@ -336,8 +359,8 @@
       </section>
     </main>
 
-    <script src="figure-config.js?v=20260710"></script>
-    <script src="motion-stats.js?v=20260621b"></script>
-    <script src="script.js?v=20260624a"></script>
+    <script src="figure-config.js?v=20260710b"></script>
+    <script src="motion-stats.js?v=20260710b"></script>
+    <script src="script.js?v=20260710b"></script>
   </body>
 </html>

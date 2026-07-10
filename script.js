@@ -1,6 +1,6 @@
-const figureData = window.SpaPOT_FIGURES || {};
-const motionPanelData = window.SpaPOT_MOTION_PANELS || {};
-const motionStats = window.SpaPOT_MOTION_STATS || {};
+const figureData = window.stCTD_FIGURES || {};
+const motionPanelData = window.stCTD_MOTION_PANELS || {};
+const motionStats = window.stCTD_MOTION_STATS || window.SpaPOT_MOTION_STATS || {};
 const motionData = { ...figureData, ...motionPanelData };
 const figureKeys = Object.keys(figureData);
 const simulationMotionKeys = ["simPitchfork", "simHeart2Duck"].filter((key) => motionData[key]);
