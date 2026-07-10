@@ -6,10 +6,10 @@
     <title>Spatiotemporal Critical Transition Decipherer (stCTD)</title>
     <meta
       name="description"
-      content="stCTD reconstructs continuous single-cell spatiotemporal dynamics and deciphers critical transition points from discrete spatial-transcriptomic snapshots."
+      content="stCTD learns coupled spatial transport, potential-driven gene-state motion and source-sink growth from staged spatial-transcriptomic snapshots."
     />
     <link rel="icon" type="image/png" href="assets/stctd_logo_full.png?v=20260710b" />
-    <link rel="stylesheet" href="styles.css?v=20260710d" />
+    <link rel="stylesheet" href="styles.css?v=20260710e" />
   </head>
   <body>
     <header class="site-header">
@@ -39,15 +39,15 @@
               <span class="stctd-wordmark">stCTD</span>
             </h1>
             <p class="eyebrow">Spatiotemporal Critical Transition Decipherer (stCTD)</p>
-            <p class="hero-subtitle">Generative reconstruction and critical-transition decoding</p>
+            <p class="hero-subtitle">From staged spatial snapshots to dynamic transition hypotheses</p>
             <p class="lead">
-              stCTD, a Spatiotemporal Critical Transition Decipherer, is a generative deep learning model designed to reconstruct continuous single-cell spatiotemporal dynamics from discrete time-series snapshots of spatial transcriptomics and decipher critical transition points underlying cell-state changes.
+              Spatial transcriptomics measures molecular state and tissue position, but each stage is a destructive snapshot of a different sample. stCTD learns a continuous field that couples tissue-space transport, potential-driven gene-state motion, and source-sink growth. The same field reconstructs intermediate states and nominates critical-transition windows.
             </p>
             <div class="hero-tags" aria-label="Key model themes">
-              <span>generative deep learning</span>
-              <span>continuous spatial dynamics</span>
-              <span>cell-state transitions</span>
-              <span>critical-point deciphering</span>
+              <span>spatial advection</span>
+              <span>gene-state potential</span>
+              <span>source-sink growth</span>
+              <span>critical-window scoring</span>
             </div>
             <div class="hero-actions" aria-label="Primary sections">
               <a href="#model">Model overview</a>
@@ -91,9 +91,9 @@
         <div class="section-inner model-grid">
           <div class="section-heading">
             <p class="eyebrow">Model overview</p>
-            <h2 id="model-title">stCTD Generative Dynamics Model</h2>
+            <h2 id="model-title">One joint state, three coupled fields</h2>
             <p>
-              The opening model graphic summarizes model inputs, fitted fields, physics-informed training, and critical-biology outputs in one compact visual.
+              Each cell or spot is represented by its two-dimensional tissue position and a graph-informed gene-latent state. stCTD learns spatial advection, gene-state potential, and source-sink growth as distinct but coupled components.
             </p>
           </div>
           <figure class="model-figure figure-one-model">
@@ -102,9 +102,9 @@
               <details class="figure-caption">
                 <summary>stCTD model for continuous spatial cell-state dynamics</summary>
                 <div class="caption-body">
-                  <p><strong>a. Dynamic spatial transcriptomics.</strong> Observed slices, generated snapshots and continuous trajectories summarize the biological transition problem.</p>
-                  <p><strong>b. Training stCTD.</strong> Spatial coordinates, graph-prior gene embeddings and time labels feed the spatial-potential transport equation and its matching, spatial, physical and dynamic losses.</p>
-                  <p><strong>c. Downstream readouts.</strong> The fitted fields support spatial slice generation, lineage inference, critical-point warning and perturbed gene-program interpretation.</p>
+                  <p><strong>a. Staged spatial dynamics.</strong> Observed sections are destructive snapshots; generated intervals and continuous paths are model reconstructions.</p>
+                  <p><strong>b. Training stCTD.</strong> Tissue coordinates, graph-informed gene embeddings and time labels define a joint state. Separate networks learn spatial velocity, gene potential and source-sink growth under matching, spatial, physical and dynamic objectives.</p>
+                  <p><strong>c. Linked readouts.</strong> The same fitted fields generate intermediate slices, abundance trajectories, model-inferred allocations, critical-transition scores and in silico perturbation hypotheses.</p>
                 </div>
               </details>
             </figcaption>
@@ -112,18 +112,18 @@
           <div class="model-notes">
             <article>
               <span class="note-index">01</span>
-              <h3>Graph-prior input</h3>
-              <p>Expression states, spatial coordinates, and GAT gene-prior latent states are used jointly, reducing the interpretability gap caused by PCA-only or unstructured latent inputs.</p>
+              <h3>Joint state, two coordinate systems</h3>
+              <p><code>x = (s, z)</code> keeps tissue position <code>s</code> separate from the graph-informed molecular state <code>z</code>, while time conditions both components.</p>
             </article>
             <article>
               <span class="note-index">02</span>
-              <h3>Separate spatial and gene dynamics</h3>
-              <p>Spatial motion is represented by a direct velocity field, while gene-latent dynamics are driven by a potential gradient, avoiding a single mixed velocity vector with weak mechanistic meaning.</p>
+              <h3>Three fields with defined roles</h3>
+              <p><code>ds/dt</code> describes tissue movement, <code>dz/dt</code> follows the negative gene-potential gradient, and <code>d log w/dt</code> captures source-sink abundance change.</p>
             </article>
             <article>
               <span class="note-index">03</span>
-              <h3>Criticality-oriented output</h3>
-              <p>The model is not only used for interpolation; low-gradient and high-action states are translated into candidate critical windows and perturbation-sensitive regions.</p>
+              <h3>Onset-oriented transition scoring</h3>
+              <p>The interval score combines high-quantile stepwise potential change with adjacent spatial transport. The rising edge is reported as onset; a later maximum is secondary context.</p>
             </article>
           </div>
         </div>
@@ -132,10 +132,10 @@
       <section class="section-band innovation-band" id="innovation" aria-labelledby="innovation-title">
         <div class="section-inner">
           <div class="section-heading narrow">
-            <p class="eyebrow">Innovation</p>
-            <h2 id="innovation-title">Innovation Points</h2>
+            <p class="eyebrow">Method design</p>
+            <h2 id="innovation-title">What stCTD adds</h2>
             <p>
-              Three linked design choices enable stCTD to move from snapshot reconstruction to interpretable detection of cell-state transitions.
+              The method is designed for staged tissues in which spatial reorganisation, molecular progression and abundance change may occur on different schedules.
             </p>
           </div>
           <div class="innovation-grid">
@@ -147,8 +147,8 @@
                   <circle cx="17" cy="12" r="2.4" />
                 </svg>
               </span>
-              <h3>Potential-constrained gene-state dynamics</h3>
-              <p>The potential landscape explains the direction of gene-latent state transitions, turning developmental change from a black-box velocity into a landscape with gradients and critical regions.</p>
+              <h3>Coupled fields with distinct roles</h3>
+              <p>Spatial position and molecular state remain separate coordinates, while a growth field explicitly permits cell or spot mass to increase or decrease along the reconstructed trajectory.</p>
             </article>
             <article class="innovation-card">
               <span class="innovation-icon" aria-hidden="true">
@@ -159,8 +159,8 @@
                   <circle cx="24" cy="24" r="2" />
                 </svg>
               </span>
-              <h3>Layered modeling of migration and expression</h3>
-              <p>Spatial coordinates and expression latent states share one temporal trajectory but are governed by distinct mechanisms, making tissue morphology, cell migration, and fate dynamics easier to interpret separately.</p>
+              <h3>Critical onset rather than peak picking</h3>
+              <p>The transition score integrates potential reorganisation with adjacent spatial redistribution. Its first sustained rise is interpreted before the later endpoint becomes visually dominant.</p>
             </article>
             <article class="innovation-card">
               <span class="innovation-icon" aria-hidden="true">
@@ -170,8 +170,8 @@
                   <circle cx="21" cy="9" r="2.4" />
                 </svg>
               </span>
-              <h3>From reconstruction to criticality and perturbation</h3>
-              <p>The result story goes beyond interpolation and reconstruction by adding critical scores, branch sensitivity, gene perturbation, and terminal fate-shift evidence.</p>
+              <h3>One fitted field, linked hypotheses</h3>
+              <p>Generated snapshots, abundance trajectories, source allocations and perturbation rollouts are read from the same dynamics instead of being assembled from unrelated downstream models.</p>
             </article>
           </div>
         </div>
@@ -180,10 +180,10 @@
       <section class="section-band dynamic-band" id="dynamic" aria-labelledby="dynamic-title">
         <div class="section-inner">
           <div class="section-heading narrow">
-            <p class="eyebrow">Data visualization</p>
-            <h2 id="dynamic-title">Simulation And Real-Data Trajectory Panels</h2>
+            <p class="eyebrow">Interactive trajectories</p>
+            <h2 id="dynamic-title">Explore reconstructed trajectories</h2>
             <p>
-              Switch between simulation and real-data modes to display one trajectory panel at a time. Simulation includes pitchfork and heart-to-duck systems; real data switches among mouse midbrain, zebrafish, and axolotl brain while retaining the same playback, seeking, zoom, and speed controls.
+              Frame-accurate playback exposes the model rollout rather than replaying observed cells. Synthetic systems test known branch and shape changes; real-data panels show continuous reconstructions for mouse dorsal midbrain, zebrafish and axolotl brain.
             </p>
           </div>
           <div class="viz-display" id="gif-grid" aria-live="polite"></div>
@@ -194,9 +194,9 @@
         <div class="section-inner downstream-grid">
           <div class="section-heading">
             <p class="eyebrow">Downstream interpretation</p>
-            <h2 id="downstream-title">Downstream Biological Readouts</h2>
+            <h2 id="downstream-title">Biological readouts from one fitted field</h2>
             <p>
-              stCTD turns reconstructed trajectories into lineage, critical-window, mechanism, and perturbation readouts.
+              These panels translate reconstructed dynamics into transition timing, source allocation and perturbation hypotheses. They remain model-derived rather than direct lineage or causal evidence.
             </p>
           </div>
           <div class="downstream-panels" aria-label="Downstream analysis panels">
@@ -206,8 +206,8 @@
                 <img src="assets/downstream/criticality.png" alt="Critical-window downstream panel preview" />
               </figure>
               <div class="downstream-card-copy">
-                <h3>Onset-oriented sensitivity</h3>
-                <p>Critical-score panels separate rising-edge signals from later maxima, linking potential reorganisation with paired lineage or state-mass readouts.</p>
+                <h3>Locate the first sustained rise</h3>
+                <p>The interval score combines high-quantile potential change with adjacent spatial transport. The rising edge marks a candidate onset; later maxima provide secondary context.</p>
                 <a href="downstream/%E4%B8%B4%E7%95%8C.pdf">Open PDF</a>
               </div>
             </article>
@@ -217,8 +217,8 @@
                 <img src="assets/downstream/lineage.png" alt="Lineage allocation downstream panel preview" />
               </figure>
               <div class="downstream-card-copy">
-                <h3>Fate-flow summaries</h3>
-                <p>Model-inferred allocation panels connect reconstructed trajectories with branch transitions and terminal-state shifts across staged spatial data.</p>
+                <h3>Track source-state allocation</h3>
+                <p>Alluvial panels follow mass from a selected source annotation through the fitted field. They summarize model-inferred allocation, not clonal lineage tracing.</p>
                 <a href="downstream_normalized/lineage.pdf">Open PDF</a>
               </div>
             </article>
@@ -228,8 +228,8 @@
                 <img src="assets/downstream/perturbation.png" alt="Perturbation downstream panel preview" />
               </figure>
               <div class="downstream-card-copy">
-                <h3>Model-derived response screens</h3>
-                <p>In silico perturbation panels summarise how selected gene shifts alter terminal-state probabilities and branch allocation in the learned stCTD state space.</p>
+                <h3>Prioritize counterfactual responses</h3>
+                <p>Gene-state shifts are rolled through the learned dynamics to compare terminal-state probabilities. Efna5 and Fzd3 are hypotheses for validation, not established causal regulators.</p>
                 <a href="downstream_normalized/perturbation.pdf">Open PDF</a>
               </div>
             </article>
@@ -239,8 +239,8 @@
                 <img src="assets/downstream/mechanism.png" alt="Mechanistic pathway downstream panel preview" />
               </figure>
               <div class="downstream-card-copy">
-                <h3>Perturbation-linked mechanisms</h3>
-                <p>Mechanistic diagrams connect model-prioritised Efna5 and Fzd3 perturbation candidates with receptor, signalling, and transcriptional response routes.</p>
+                <h3>Connect candidates to pathway context</h3>
+                <p>Literature-supported receptor and signalling routes contextualize the Efna5 and Fzd3 responses. The diagrams do not claim that every displayed edge is a direct target.</p>
                 <a href="downstream/%E6%9C%BA%E5%88%B6%E5%9B%BE.pdf">Open PDF</a>
               </div>
             </article>
@@ -251,10 +251,10 @@
       <section class="section-band results-band" id="results" aria-labelledby="results-title">
         <div class="section-inner">
           <div class="section-heading narrow">
-            <p class="eyebrow">Current figures</p>
-            <h2 id="results-title">Static Figure Browser</h2>
+            <p class="eyebrow">Final figures</p>
+            <h2 id="results-title">Manuscript figure browser</h2>
             <p>
-              Each entry shows the static figure preview, manuscript legend, evidence focus, and PDF link when available. Interactive trajectory playback is kept in the animation section above.
+              Select a figure to inspect its final preview, panel-by-panel legend and PDF. Interactive trajectory playback remains in the dedicated section above.
             </p>
           </div>
 
@@ -292,41 +292,41 @@
         <div class="section-inner">
           <div class="section-heading narrow">
             <p class="eyebrow">Evidence route</p>
-            <h2 id="route-title">Six-Figure Manuscript Architecture</h2>
+            <h2 id="route-title">The six-figure result story</h2>
             <p>
-              The result package is structured as a six-figure story: a graphical abstract, one controlled benchmark, three real biological datasets, and one model-comparison endpoint.
+              The manuscript moves from model definition to controlled recovery, a primary developmental case, two transfer settings and a final scope comparison.
             </p>
           </div>
           <div class="route-grid">
             <article class="route-card">
               <span class="route-index">Figure 1</span>
-              <h3>Abstract graphic</h3>
-              <p>The graphical abstract introduces the core problem, model structure, key outputs, and biological interpretation in the first major visual.</p>
+              <h3>Model definition</h3>
+              <p>Defines the joint state, spatial-potential-growth fields and the linked downstream readouts.</p>
             </article>
             <article class="route-card">
               <span class="route-index">Figure 2</span>
-              <h3>Simulation validation</h3>
-              <p>Shows that the model can recover continuous trajectories, cell-type proportions, potential fields, and early-warning-style critical scores in a controlled system.</p>
+              <h3>Controlled recovery</h3>
+              <p>Tests known branch geometry, source-sink abundance and the designed critical rise from synthetic time t=1.</p>
             </article>
             <article class="route-card">
               <span class="route-index">Figure 3</span>
-              <h3>Mouse midbrain</h3>
-              <p>The main real-data case, connecting slice alignment, generated trajectories, potential landscapes, critical metrics, lineage shifts, and gene perturbation.</p>
+              <h3>Primary developmental case</h3>
+              <p>Connects E12.5-E16.5 dorsal-midbrain reconstruction with an E13.5 warning rise and model-derived Efna5/Fzd3 responses.</p>
             </article>
             <article class="route-card">
               <span class="route-index">Figure 4</span>
-              <h3>Zebrafish</h3>
-              <p>The second real dataset, used to show time-point generation, branch criticality, lineage transition, and functional enrichment.</p>
+              <h3>Developmental transfer</h3>
+              <p>Tests 10-18 hpf reconstruction, branch-resolved transition timing and programme-level interpretation in zebrafish.</p>
             </article>
             <article class="route-card">
               <span class="route-index">Figure 5</span>
-              <h3>Axolotl brain</h3>
-              <p>The third real dataset, used to show injury/developmental trajectories, critical scores, EGC-family gene programs, and potential-associated expression.</p>
+              <h3>Regeneration transfer</h3>
+              <p>Pairs 2-20 DPI injury reconstruction with a pre-15 DPI reaEGC warning rise and later state redistribution.</p>
             </article>
             <article class="route-card">
               <span class="route-index">Figure 6</span>
-              <h3>Model comparison</h3>
-              <p>Summarizes how stCTD differs from other methods in prediction, interpolation, alignment, and biological interpretability.</p>
+              <h3>Scope and reconstruction</h3>
+              <p>Compares supported functions and spatial/state reconstruction against complementary baseline methods.</p>
             </article>
           </div>
         </div>
@@ -335,31 +335,54 @@
       <section class="section-band evidence-band" id="evidence" aria-labelledby="evidence-title">
         <div class="section-inner">
           <div class="section-heading narrow">
-            <p class="eyebrow">Result map</p>
-            <h2 id="evidence-title">Evidence Matrix</h2>
+            <p class="eyebrow">Evidence map</p>
+            <h2 id="evidence-title">What each figure establishes</h2>
             <p>
-              The six figures are organized as a manuscript-ready evidence map, linking each dataset to the biological or methodological claim it supports.
+              This map separates model definition, controlled validation, biological applications and comparison evidence so that each claim remains tied to a specific figure.
             </p>
           </div>
           <div class="evidence-table" id="evidence-table" aria-label="Figure evidence matrix"></div>
         </div>
       </section>
 
-      <section class="section-band claim-band" aria-labelledby="claim-title">
-        <div class="section-inner claim-grid">
-          <div>
+      <section class="section-band claim-band" id="claims" aria-labelledby="claim-title">
+        <div class="section-inner">
+          <div class="section-heading narrow">
             <p class="eyebrow">Claim discipline</p>
-            <h2 id="claim-title">Claim Boundaries</h2>
+            <h2 id="claim-title">Interpretation boundaries</h2>
+            <p>stCTD converts staged observations into testable dynamic hypotheses. Three distinctions should remain explicit when reading the results.</p>
           </div>
-          <p>
-            Gene perturbation results should be described as model-inferred in silico perturbations, not real CRISPR or in vivo perturbation experiments. If detailed figure pages are added later, this boundary should remain visible near the perturbation-related panels.
-          </p>
+          <div class="claim-grid">
+            <article class="claim-card">
+              <span>01</span>
+              <h3>Snapshots are not tracked cells</h3>
+              <p>Observed stages come from different samples. Generated paths and alluvial flows are model-inferred allocations, not direct lineage tracing.</p>
+            </article>
+            <article class="claim-card">
+              <span>02</span>
+              <h3>A warning score is not proof of bifurcation</h3>
+              <p>The score is an early-warning heuristic built from fitted potential change and spatial transport. It nominates intervals for follow-up.</p>
+            </article>
+            <article class="claim-card">
+              <span>03</span>
+              <h3>In silico is not experimental causality</h3>
+              <p>Perturbation rollouts prioritize candidate genes and response directions; they do not replace CRISPR, pharmacological or in vivo validation.</p>
+            </article>
+          </div>
         </div>
       </section>
     </main>
 
-    <script src="figure-config.js?v=20260710b"></script>
+    <footer class="site-footer">
+      <div>
+        <strong>stCTD</strong>
+        <span>Spatiotemporal Critical Transition Decipherer</span>
+      </div>
+      <a href="https://github.com/wanghongye200211/stCTDcover">GitHub repository</a>
+    </footer>
+
+    <script src="figure-config.js?v=20260710e"></script>
     <script src="motion-stats.js?v=20260710c"></script>
-    <script src="script.js?v=20260710c"></script>
+    <script src="script.js?v=20260710e"></script>
   </body>
 </html>

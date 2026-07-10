@@ -64,6 +64,7 @@ const interactiveSurfaceSelector = [
   ".model-notes article",
   ".innovation-card",
   ".route-card",
+  ".claim-card",
   ".downstream-logic article",
   ".downstream-card",
   ".evidence-row",
@@ -91,12 +92,12 @@ const revealSelector = [
   ".model-notes article",
   ".innovation-card",
   ".route-card",
+  ".claim-card",
   ".downstream-logic article",
   ".downstream-card",
   ".evidence-row",
   ".viz-column",
   ".result-browser",
-  ".claim-grid",
 ].join(",");
 
 function setupInteractiveSurfaces(scope = document) {
@@ -873,10 +874,6 @@ function buildEvidenceTable() {
     .map((key) => {
       const data = figureData[key];
       const evidence = data.evidence || [];
-      const assetLabels = [
-        data.preview ? "Preview" : "",
-        data.pdf ? "PDF" : "",
-      ].filter(Boolean);
 
       return `
         <article
@@ -897,9 +894,6 @@ function buildEvidenceTable() {
           </div>
           <div class="evidence-tags" aria-label="${data.kicker} evidence">
             ${evidence.map((item) => `<span>${item}</span>`).join("")}
-          </div>
-          <div class="asset-status" aria-label="${data.kicker} available assets">
-            ${assetLabels.map((item) => `<span>${item}</span>`).join("")}
           </div>
         </article>
       `;
