@@ -66,9 +66,9 @@
       "raw_time_start": 2.0,
       "raw_time_end": 20.0,
       "raw_dt": 0.1,
-      "source_gif": "/Users/wanghongye/python/stVCR/result_figures/axolotl_artista_injured_adjacent_aligned_direct_ae_hybrid_hj_compare/trajectory_b_panel/gif_paper_model_fixed_dt0p1/axolotl_paper_model_stvcr_original_style_fixed_dt0.1_hour.gif",
-      "source_run": "/Users/wanghongye/python/stVCR/result_figures/axolotl_artista_injured_adjacent_aligned_direct_ae_hybrid_hj_compare/nohj_lam0_e1000_s1024_samplegrowth",
-      "source_model": "/Users/wanghongye/python/stVCR/result_figures/axolotl_artista_injured_adjacent_aligned_direct_ae_hybrid_hj_compare/nohj_lam0_e1000_s1024_samplegrowth/stvcr_model.pt",
+      "source_gif": "/Users/wanghongye/python/stVCR/result_figures/\u877e\u8788/trajectory_b_panel/gif_hjb_previous_fixed_dt0p1/axolotl_paper_model_stvcr_original_style_fixed_dt0.1_hour.gif",
+      "source_run": "/Users/wanghongye/python/stVCR/result_figures/axolotl_artista_preprocessed_injured_direct_ae_hybrid_hjb/e1000_s1024_lamhjb10_samplegrowth",
+      "source_model": "/Users/wanghongye/python/stVCR/result_figures/axolotl_artista_preprocessed_injured_direct_ae_hybrid_hjb/e1000_s1024_lamhjb10_samplegrowth/save_model/hybrid_model.pth",
       "label_source": "paper-model classifier palette",
       "interpolation": "native model frames"
     }

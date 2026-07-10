@@ -60,7 +60,7 @@ The current motion assets are standardized by:
 /opt/anaconda3/envs/OT_physics/bin/python results_frontend/tools/build_standard_motion_assets.py
 ```
 
-This script writes the frontend GIFs, frame folders, and `assets/motion_manifest.json`. The standardized layout places the dataset/model label in the upper left, the time marker in the upper right, the label source in the lower left, and the frame step in the lower left footer. Figure 2 has two simulation panels: pitchfork and heart-to-duck.
+This script writes the frontend GIFs, frame folders, and `assets/motion_manifest.json`. The standardized layout intentionally omits figure and model titles inside the animation, removes source plot borders, enlarges the visible data region, places the time marker in the upper right, the label source in the lower left, and the frame step in the lower right. Figure 2 has two simulation panels: pitchfork and heart-to-duck.
 
 After replacing any GIF, regenerate the frame folders:
 

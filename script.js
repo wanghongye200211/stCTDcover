@@ -5,6 +5,7 @@ const motionData = { ...figureData, ...motionPanelData };
 const figureKeys = Object.keys(figureData);
 const simulationMotionKeys = ["simPitchfork", "simHeart2Duck"].filter((key) => motionData[key]);
 const realFigureKeys = ["figure3", "figure4", "figure5"].filter((key) => figureData[key]);
+const motionAssetVersion = "20260710c";
 let activeVizMode = "simulation";
 let activeSimulationKey = simulationMotionKeys[0] || "";
 let activeRealFigureKey = realFigureKeys[0] || "";
@@ -352,12 +353,17 @@ function hasInteractiveFrames(data) {
   return Boolean(data.frames?.base && data.frames?.count > 1);
 }
 
+function versionMotionAsset(source) {
+  if (!source) return "";
+  return `${source}${source.includes("?") ? "&" : "?"}v=${motionAssetVersion}`;
+}
+
 function getFrameSource(data, frameIndex) {
   const frames = data.frames;
-  if (!frames) return data.gif || data.preview || "";
+  if (!frames) return versionMotionAsset(data.gif) || data.preview || "";
   const pad = frames.pad || 3;
   const extension = frames.extension || "png";
-  return `${frames.base}${String(frameIndex).padStart(pad, "0")}.${extension}`;
+  return versionMotionAsset(`${frames.base}${String(frameIndex).padStart(pad, "0")}.${extension}`);
 }
 
 function getFrameLabel(data, frameIndex) {
@@ -488,7 +494,7 @@ function buildMotionPreview(data, figureKey) {
       </div>
       <div class="motion-content-grid">
         <div class="motion-main">
-          <img src="${data.gif}" alt="${data.alt || `${data.kicker} animated trajectory`}" />
+          <img src="${versionMotionAsset(data.gif)}" alt="${data.alt || `${data.kicker} animated trajectory`}" />
         </div>
         ${buildCellTypePanel(figureKey)}
       </div>
@@ -546,7 +552,7 @@ function buildMotionPreview(data, figureKey) {
           </div>
           ${
             data.gif
-              ? `<a class="motion-raw-link" href="${data.gif}" aria-label="Open original ${data.kicker} GIF">Open original GIF</a>`
+              ? `<a class="motion-raw-link" href="${versionMotionAsset(data.gif)}" aria-label="Open original ${data.kicker} GIF">Open original GIF</a>`
               : ""
           }
         </div>
