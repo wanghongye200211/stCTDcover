@@ -9,7 +9,7 @@
       content="stCTD learns coupled spatial transport, potential-driven gene-state motion and source-sink growth from staged spatial-transcriptomic snapshots."
     />
     <link rel="icon" type="image/png" href="assets/stctd_logo_full.png?v=20260710b" />
-    <link rel="stylesheet" href="styles.css?v=20260711b" />
+    <link rel="stylesheet" href="styles.css?v=20260711c" />
   </head>
   <body>
     <header class="site-header">
@@ -90,14 +90,13 @@
             </p>
           </div>
           <figure class="model-figure figure-one-model">
-            <img src="assets/figure1_model.png?v=20260710" alt="stCTD graphical abstract and generative dynamics model" />
+            <img src="assets/downstream/model.png?v=20260711" alt="stCTD training architecture and linked downstream applications" />
             <figcaption>
               <details class="figure-caption">
-                <summary>stCTD model for continuous spatial cell-state dynamics</summary>
+                <summary>stCTD architecture and linked model readouts</summary>
                 <div class="caption-body">
-                  <p><strong>a. Staged spatial dynamics.</strong> Observed sections are destructive snapshots; generated intervals and continuous paths are model reconstructions.</p>
                   <p><strong>b. Training stCTD.</strong> Tissue coordinates, graph-informed gene embeddings and time labels define a joint state. Separate networks learn spatial velocity, gene potential and source-sink growth under matching, spatial, physical and dynamic objectives.</p>
-                  <p><strong>c. Linked readouts.</strong> The same fitted fields generate intermediate slices, abundance trajectories, model-inferred allocations, critical-transition scores and in silico perturbation hypotheses.</p>
+                  <p><strong>c. Downstream analyses.</strong> The fitted fields support spatial-slice generation, model-inferred lineage allocation, critical-window scoring and in silico perturbation hypotheses.</p>
                 </div>
               </details>
             </figcaption>
@@ -281,6 +280,7 @@
         </div>
       </section>
 
+      <!-- Deferred evidence sections: retained for possible later use.
       <section class="section-band route-band" id="route" aria-labelledby="route-title">
         <div class="section-inner">
           <div class="section-heading narrow">
@@ -364,6 +364,7 @@
           </div>
         </div>
       </section>
+      -->
     </main>
 
     <footer class="site-footer">
@@ -376,6 +377,6 @@
 
     <script src="figure-config.js?v=20260710e"></script>
     <script src="motion-stats.js?v=20260710c"></script>
-    <script src="script.js?v=20260710e"></script>
+    <script src="script.js?v=20260711f"></script>
   </body>
 </html>

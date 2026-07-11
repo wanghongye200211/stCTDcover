@@ -1110,7 +1110,6 @@ function buildSimulationViz() {
       <div class="viz-section-header">
         <div class="viz-control-panel">
           <div class="viz-heading-block">
-            <span class="viz-section-label">Simulation</span>
             <div>
               <h3 data-simulation-viz-title>${activeData.title}</h3>
               <p>Switch between synthetic trajectories and inspect frame-by-frame spatial motion.</p>
@@ -1139,7 +1138,6 @@ function buildRealViz() {
       <div class="viz-section-header">
         <div class="viz-control-panel">
           <div class="viz-heading-block">
-            <span class="viz-section-label">Real datasets</span>
             <div>
               <h3 data-real-viz-title>${activeRealData.title}</h3>
               <p>Switch between biological systems while keeping the same playback, zoom and timeline controls.</p>
