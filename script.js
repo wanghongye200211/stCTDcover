@@ -27,6 +27,7 @@ const resultFigureHashPrefix = "#result-";
 const motionPlayerInstances = new WeakMap();
 const visibleCellTypeLabels = new Map();
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+let motionInteractionHintSeen = false;
 const uiIcons = {
   play: `
     <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true">
@@ -588,11 +589,28 @@ class MotionFramePlayer {
     this.resetViewButton = root.querySelector("[data-reset-view]");
     this.counter = root.querySelector("[data-frame-counter]");
     this.label = root.querySelector("[data-frame-label]");
+    this.hintTimer = null;
 
-    this.playButton?.addEventListener("click", () => this.togglePlay());
-    this.speedButton?.addEventListener("click", () => this.toggleSpeed());
-    this.resetViewButton?.addEventListener("click", () => this.resetView());
+    if (!motionInteractionHintSeen && !reduceMotion.matches) {
+      this.root.classList.add("is-discoverable");
+      this.hintTimer = window.setTimeout(() => this.dismissInteractionHint(), 6200);
+    }
+
+    this.playButton?.addEventListener("click", () => {
+      this.dismissInteractionHint();
+      this.togglePlay();
+    });
+    this.speedButton?.addEventListener("click", () => {
+      this.dismissInteractionHint();
+      this.toggleSpeed();
+    });
+    this.resetViewButton?.addEventListener("click", () => {
+      this.dismissInteractionHint();
+      this.resetView();
+    });
+    this.range?.addEventListener("pointerdown", () => this.dismissInteractionHint());
     this.range?.addEventListener("input", (event) => {
+      this.dismissInteractionHint();
       this.setFrame(Number(event.target.value));
       if (this.playing) this.scheduleNextFrame();
     });
@@ -603,13 +621,25 @@ class MotionFramePlayer {
     this.setFrame(0);
   }
 
+  dismissInteractionHint() {
+    if (!this.root.classList.contains("is-discoverable")) return;
+    this.root.classList.remove("is-discoverable");
+    motionInteractionHintSeen = true;
+    window.clearTimeout(this.hintTimer);
+    this.hintTimer = null;
+  }
+
   setFrame(index) {
     if (!this.data) return;
     const nextIndex = Math.max(0, Math.min(this.frameCount - 1, Math.round(index)));
     this.frameIndex = nextIndex;
 
     if (this.image) this.image.src = getFrameSource(this.data, this.frameIndex);
-    if (this.range) this.range.value = String(this.frameIndex);
+    if (this.range) {
+      this.range.value = String(this.frameIndex);
+      const progress = this.frameCount > 1 ? (this.frameIndex / (this.frameCount - 1)) * 100 : 0;
+      this.range.style.setProperty("--range-progress", `${progress.toFixed(2)}%`);
+    }
     if (this.counter) this.counter.textContent = `Frame ${this.frameIndex + 1}/${this.frameCount}`;
     if (this.label) this.label.textContent = getFrameLabel(this.data, this.frameIndex);
     updateCellTypePanel(this.root, this.figureKey, this.frameIndex);
@@ -766,6 +796,7 @@ class MotionFramePlayer {
   destroy() {
     this.playing = false;
     window.clearTimeout(this.timer);
+    window.clearTimeout(this.hintTimer);
   }
 }
 
@@ -918,16 +949,16 @@ function setFigure(figureKey, options = {}) {
     item.setAttribute("aria-pressed", String(isActive));
   });
 
-  kicker.textContent = data.shortLabel;
+  kicker.textContent = data.kicker;
   title.textContent = data.title;
-  body.textContent = data.body;
+  if (body) body.textContent = data.body;
   if (resultLegend) {
     resultLegend.innerHTML = data.legend
-      ? `<p class="time-label">Figure legend</p><p>${data.legend}</p>`
+      ? `<p>${data.legend}</p>`
       : "";
   }
-  resultEvidence.innerHTML = buildEvidenceMeta(data);
-  resultAssets.innerHTML = buildAssetMeta(data);
+  if (resultEvidence) resultEvidence.innerHTML = buildEvidenceMeta(data);
+  if (resultAssets) resultAssets.innerHTML = buildAssetMeta(data);
   if (resultPanel) resultPanel.dataset.activeFigure = figureKey;
   image.src = data.preview;
   image.alt = data.alt || `${data.kicker} preview`;
@@ -995,7 +1026,6 @@ function buildVizModeToggle() {
 
   return `
     <div class="viz-mode-shell">
-      <span class="viz-mode-label">View mode</span>
       <div class="viz-mode-toggle" role="tablist" aria-label="Trajectory visualization mode">
         ${modes
           .map((mode) => {

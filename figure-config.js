@@ -34,11 +34,11 @@ window.stCTD_FIGURES = {
   figure2: {
     kicker: "Figure 2",
     shortLabel: "Simulation",
-    title: "Simulation benchmark",
+    title: "Controlled reconstruction of branching fate and shape transitions",
     dataset: "Pitchfork and heart-to-duck systems",
     role: "Controlled benchmark",
     body:
-      "Controlled systems test whether stCTD preserves known branch geometry and shape change while recovering source-sink abundance and the designed onset of a critical transition.",
+      "Two complementary synthetic systems separate reconstruction accuracy from transition detection. The pitchfork benchmark tests branch separation, source-sink mass recovery and an onset at t=1 before terminal fates dominate, whereas the heart-to-duck benchmark tests continuous deformation across a large shape transition.",
     legend:
       "Fig. 2: Simulation validation of stCTD. a. Rigid alignment control for the pitchfork benchmark, comparing artificially perturbed and aligned slices. b. Observed anchors and generated intermediate frames preserve the expected pitchfork branch separation. c. The interval critical-transition score begins to rise from synthetic time t=1, before terminal branches become visually dominant. d. Fitted potential and local stepwise potential-change maps. e. Observed and generated progenitor and terminal-state counts, testing source-sink mass recovery. f. Spatial-speed maps and velocity arrows at representative intermediate times. g. Heart-to-duck observed anchors and generated shape transitions. h. Cell-type fractions across the heart-to-duck rollout. i. Stepwise potential-action and adjacent spatial-transport components used to interpret the synthetic transition.",
     preview: "assets/figure2_preview.png",
@@ -58,11 +58,11 @@ window.stCTD_FIGURES = {
   figure3: {
     kicker: "Figure 3",
     shortLabel: "Mouse midbrain",
-    title: "Mouse dorsal midbrain dynamics",
+    title: "Continuous reconstruction of mouse dorsal midbrain development",
     dataset: "MOSTA dorsal midbrain",
     role: "Primary developmental case",
     body:
-      "Across E12.5, E14.5 and E16.5, stCTD reconstructs a continuous dorsal-midbrain trajectory. A warning rise near E13.5 precedes stronger RGC-origin allocation toward NeuB- and GlioB-associated states.",
+      "Across E12.5, E14.5 and E16.5, stCTD reconstructs continuous tissue and cell-state dynamics between destructive snapshots. The early-warning rise near E13.5 precedes stronger model-inferred RGC allocation toward NeuB- and GlioB-associated states and motivates the Efna5/Fzd3 perturbation analysis.",
     legend:
       "Fig. 3: stCTD reconstruction of mouse dorsal midbrain development. a. E12.5, E14.5 and E16.5 slices before and after alignment, with RGC, NeuB and GlioB annotations. b. Three-dimensional space-time trajectory combining observed stages and generated intermediate sections. c. Gene-latent potential landscape and RGC/NeuB/GlioB state structure. d. The interval critical-transition score rises near E13.5, before the largest visible expansion of non-RGC states. e. RGC-origin alluvial summary of model-inferred allocation across generated and observed times; this is not clonal lineage tracing. f. Observed and predicted RGC, NeuB and GlioB counts at E14.5 and E16.5. g. State-associated expression programmes. h. Efna5 and Fzd3 in silico perturbation rollouts and dose-response summaries. i. Literature-supported pathway context for the two perturbation candidates.",
     preview: "assets/figure3_preview.png?v=20260710",
@@ -82,11 +82,11 @@ window.stCTD_FIGURES = {
   figure4: {
     kicker: "Figure 4",
     shortLabel: "Zebrafish",
-    title: "Zebrafish developmental dynamics",
+    title: "Spatiotemporal reconstruction of zebrafish embryonic lineage transitions",
     dataset: "ZESTA zebrafish embryo",
     role: "Developmental transfer",
     body:
-      "The 10-18 hpf ZESTA series tests temporal transfer across whole-embryo domains. Branch-resolved rises near 14-14.5 hpf are paired with model-inferred neural and mesodermal allocation programmes.",
+      "The 10-18 hpf ZESTA series tests whether one fitted field can reconstruct whole-embryo deformation while retaining branch-specific state changes. Warning rises near 14-14.5 hpf are linked to model-inferred neural and mesodermal allocations, spatial-speed fields and developmental programmes.",
     legend:
       "Fig. 4: stCTD reconstruction of zebrafish embryogenesis. a. Observed and generated ZESTA embryo frames from 10 to 18 hpf; solid borders mark observed anchors and dashed borders mark model-generated intervals. b. Critical-transition score for the first source branch, with two nominated rises. c. Spatial descendant frames from a neural-keel-associated source. d. Model-inferred alluvial allocation toward neural rod and neural crest/otic-associated states. e. A second branch-specific score rises near 14.5 hpf. f. Spatial descendants from a somite-associated source. g. Model-inferred allocation toward notochord and erythroid-associated endpoints. h. Spatial-speed field and state-resolved speed distributions. i. Row-scaled developmental programme enrichment. j. Differential-expression and pathway summaries for erythroid- and notochord-associated endpoints. The alluvial flows summarize inferred allocation from staged samples, not clonal descent.",
     preview: "assets/figure4_preview.png?v=20260710",
@@ -106,11 +106,11 @@ window.stCTD_FIGURES = {
   figure5: {
     kicker: "Figure 5",
     shortLabel: "Axolotl brain",
-    title: "Axolotl brain injury-response dynamics",
+    title: "Spatiotemporal reconstruction of axolotl brain regeneration after injury",
     dataset: "ARTISTA axolotl brain",
     role: "Regeneration transfer",
     body:
-      "The 2-20 DPI injury series tests regeneration dynamics. A pre-15 DPI reaEGC warning rise is followed by model-inferred redistribution toward rIPC4, tlNBL and additional downstream states.",
+      "The 2-20 DPI ARTISTA series follows injury-associated spatial reorganization and cell-state redistribution during regeneration. A second reaEGC warning rise precedes 15 DPI and is followed by model-inferred shifts toward rIPC4, tlNBL and other downstream states, while VLMC/CMPN scores flatten later in the fitted interval.",
     legend:
       "Fig. 5: stCTD reconstruction of axolotl brain injury-response dynamics. a. ARTISTA slices before and after alignment at 2, 5, 10, 15 and 20 DPI. b. Observed anchors and generated intermediate injury stages, separated by solid and dashed borders. c. reaEGC and VLMC/CMPN-associated warning-score curves; the second reaEGC rise occurs before 15 DPI. d. Spatial maps localizing reaEGC and VLMC score changes. e. Cell-count trajectories for reaEGC, wntEGC, tlNBL, rIPC4, VLMC and CMPN states. f. reaEGC-versus-wntEGC differential-expression and pathway summary. g. Cell-state marker dot plot. h. Potential-ordered NELL2 and DDIT4 expression trends across selected EGC-associated states. The warning and allocation readouts are model-derived hypotheses for regeneration biology.",
     preview: "assets/figure5_preview.png?v=20260710",
@@ -130,11 +130,11 @@ window.stCTD_FIGURES = {
   figure6: {
     kicker: "Figure 6",
     shortLabel: "Model comparison",
-    title: "Model comparison across datasets",
+    title: "Cross-method comparison of generative reconstruction and dynamic inference",
     dataset: "Mouse and zebrafish benchmarks",
     role: "Cross-method comparison",
     body:
-      "The comparison separates model scope from reconstruction behavior. It evaluates supported functions together with state L1 distance, spatial intersection-over-union and spatial Chamfer distance.",
+      "The comparison separates functional scope from reconstruction quality across representative baselines. Capability coverage is paired with qualitative spatial/state reconstructions and quantitative state L1, spatial intersection-over-union and Chamfer-distance measurements.",
     legend:
       "Fig. 6: stCTD comparison across datasets and methods. a. Capability matrix comparing stCTD with representative spatial alignment, spatial pseudotime, optimal-transport, reconstruction and perturbation-oriented methods across alignment, generative reconstruction, future-state inference, fate inference, mass dynamics, in silico perturbation and critical-window detection tasks. b. Qualitative reconstruction comparison on mouse dorsal midbrain and zebrafish stages, contrasting observed slices with outputs from baseline methods and stCTD. c. Quantitative comparison of state-level L1, spatial IoU and spatial Chamfer metrics, summarizing state composition, spatial overlap and geometry quality across benchmark settings.",
     preview: "assets/figure6_preview.png",

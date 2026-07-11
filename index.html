@@ -9,7 +9,7 @@
       content="stCTD learns coupled spatial transport, potential-driven gene-state motion and source-sink growth from staged spatial-transcriptomic snapshots."
     />
     <link rel="icon" type="image/png" href="assets/stctd_logo_full.png?v=20260710b" />
-    <link rel="stylesheet" href="styles.css?v=20260711c" />
+    <link rel="stylesheet" href="styles.css?v=20260711e" />
   </head>
   <body>
     <header class="site-header">
@@ -200,6 +200,7 @@
               <div class="downstream-card-copy">
                 <h3>Locate the first sustained rise</h3>
                 <p>The interval score combines high-quantile potential change with adjacent spatial transport. The rising edge marks a candidate onset; later maxima provide secondary context.</p>
+                <p class="downstream-insight"><strong>Panel readout.</strong> reaEGC shows two warning onsets near 5 and 15 DPI (P = 0.002 and 2.2 × 10<sup>−4</sup>). VLMC and CMPN converge to a low, nearly flat stCTD score after approximately 15 DPI, suggesting relative late-interval stability in the fitted dynamics rather than biological quiescence. The original atlas reported full restoration of cell types and spatial distributions by 60 DPI but did not specifically classify VLMC or CMPN as stable populations (<a href="https://doi.org/10.1126/science.abp9444">Wei et al., Science 2022</a>).</p>
                 <a href="downstream/%E4%B8%B4%E7%95%8C.pdf">Open PDF</a>
               </div>
             </article>
@@ -211,6 +212,7 @@
               <div class="downstream-card-copy">
                 <h3>Track source-state allocation</h3>
                 <p>Alluvial panels follow mass from a selected source annotation through the fitted field. They summarize model-inferred allocation, not clonal lineage tracing.</p>
+                <p class="downstream-insight"><strong>Panel readout.</strong> From E12.5 to E16.5, RGC decreases from 1,708 to 348 while NeuB rises from 66 to 335 and GlioB reaches 290, indicating progressively broader model-inferred allocation away from the source state.</p>
                 <a href="downstream_normalized/lineage.pdf">Open PDF</a>
               </div>
             </article>
@@ -222,6 +224,7 @@
               <div class="downstream-card-copy">
                 <h3>Prioritize counterfactual responses</h3>
                 <p>Gene-state shifts are rolled through the learned dynamics to compare terminal-state probabilities. Efna5 and Fzd3 are hypotheses for validation, not established causal regulators.</p>
+                <p class="downstream-insight"><strong>Panel readout.</strong> Positive Efna5 or Fzd3 z-score shifts progressively increase the plotted terminal-state fraction, whereas negative shifts reduce it; the Efna5 panel spans the larger response range.</p>
                 <a href="downstream_normalized/perturbation.pdf">Open PDF</a>
               </div>
             </article>
@@ -233,6 +236,7 @@
               <div class="downstream-card-copy">
                 <h3>Connect candidates to pathway context</h3>
                 <p>Literature-supported receptor and signalling routes contextualize the Efna5 and Fzd3 responses. The diagrams do not claim that every displayed edge is a direct target.</p>
+                <p class="downstream-insight"><strong>Panel readout.</strong> Efna5 is linked to EphA–Ras/ERK, RhoA/ROCK and Abl1–ENAH–PAK branches, while Fzd3 connects FZD/Dvl to canonical β-catenin/TCF, PCP and Ca<sup>2+</sup>/NFAT routes.</p>
                 <a href="downstream/%E6%9C%BA%E5%88%B6%E5%9B%BE.pdf">Open PDF</a>
               </div>
             </article>
@@ -254,26 +258,28 @@
             <div class="result-tabs" id="result-tabs" role="tablist" aria-label="Result figure tabs"></div>
 
             <article class="result-panel" aria-live="polite">
-              <div class="result-copy">
-                <p class="result-kicker" id="result-kicker">Model overview</p>
-                <h3 id="result-title">Graphical abstract and model overview</h3>
-                <details class="figure-caption result-details">
-                  <summary>Content</summary>
-                  <div class="result-detail-body">
-                    <p id="result-body">The graphical abstract introduces the core problem, model structure, and major outputs.</p>
-                    <div class="result-legend" id="result-legend" aria-label="Selected figure legend"></div>
-                    <div class="result-evidence" id="result-evidence" aria-label="Selected figure evidence"></div>
-                    <div class="result-assets" id="result-assets" aria-label="Selected figure asset status"></div>
-                  </div>
-                </details>
+              <header class="result-header">
+                <div class="result-heading">
+                  <p class="result-kicker" id="result-kicker">Figure 1</p>
+                  <h3 id="result-title">Graphical abstract and model overview</h3>
+                  <p class="result-summary" id="result-body">stCTD connects staged spatial observations with continuous tissue-space transport, gene-state motion and source-sink growth.</p>
+                </div>
                 <div class="result-actions">
                   <a id="result-link" class="pdf-link" href="#" aria-disabled="true">PDF pending</a>
                 </div>
-              </div>
+              </header>
               <div class="result-media">
                 <figure class="result-preview">
                   <img id="result-image" src="assets/figure1_model.png?v=20260710" alt="Model overview preview" />
                 </figure>
+              </div>
+              <div class="result-copy">
+                <details class="figure-caption result-details" open>
+                  <summary>Figure legend</summary>
+                  <div class="result-detail-body">
+                    <div class="result-legend" id="result-legend" aria-label="Selected figure legend"></div>
+                  </div>
+                </details>
               </div>
             </article>
           </div>
@@ -375,8 +381,8 @@
       <a href="https://github.com/wanghongye200211/stCTDcover">GitHub repository</a>
     </footer>
 
-    <script src="figure-config.js?v=20260710e"></script>
+    <script src="figure-config.js?v=20260711f"></script>
     <script src="motion-stats.js?v=20260710c"></script>
-    <script src="script.js?v=20260711f"></script>
+    <script src="script.js?v=20260711h"></script>
   </body>
 </html>
