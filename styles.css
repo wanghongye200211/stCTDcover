@@ -284,23 +284,14 @@ section[id] {
 .hero-wordmark {
   position: relative;
   width: fit-content;
-  margin: -8px 0 2px;
-  padding: 0 26px 12px 2px;
-  line-height: 0.88;
+  margin: 0 0 4px;
+  padding: 0;
+  font-size: 5.8rem;
+  line-height: 0.94;
 }
 
 .hero-wordmark::after {
-  position: absolute;
-  right: 4px;
-  bottom: 0;
-  width: 72%;
-  height: 5px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, rgba(18, 93, 207, 0.1), #2f77dc 44%, #bd3bca 100%);
-  box-shadow: 0 8px 20px rgba(73, 93, 214, 0.18);
-  content: "";
-  transform: rotate(-2deg);
-  transform-origin: right center;
+  display: none;
 }
 
 .eyebrow,
@@ -344,11 +335,11 @@ h1 {
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
-  font-family: "Snell Roundhand", "Segoe Script", "Brush Script MT", cursive;
-  font-style: italic;
-  font-weight: 600;
+  font-family: "Avenir Next", "Helvetica Neue", "Segoe UI", sans-serif;
+  font-style: normal;
+  font-weight: 760;
   letter-spacing: 0;
-  text-shadow: 0 16px 42px rgba(63, 111, 216, 0.16);
+  text-shadow: 0 12px 30px rgba(63, 111, 216, 0.12);
 }
 
 .hero-subtitle {
@@ -584,13 +575,19 @@ p {
 
 .hero-atlas {
   display: grid;
+  grid-template-columns: minmax(0, 1fr) 168px;
   gap: 10px;
+  align-items: stretch;
+  height: min(720px, 88vw);
   min-width: 0;
 }
 
 .atlas-feature {
   position: relative;
   display: grid;
+  grid-column: 1;
+  grid-row: 1;
+  height: 100%;
   min-width: 0;
   overflow: hidden;
   border: 1px solid rgba(63, 111, 216, 0.16);
@@ -620,7 +617,8 @@ p {
 .atlas-feature-media {
   display: grid;
   place-items: center;
-  min-height: 440px;
+  min-height: 0;
+  height: 100%;
   padding: 16px;
   background:
     linear-gradient(135deg, rgba(245, 248, 247, 0.86), rgba(234, 241, 255, 0.46)),
@@ -644,9 +642,10 @@ p {
 }
 
 .atlas-feature[data-figure="figure1"] .atlas-feature-media img {
-  width: min(100%, 680px);
+  width: 100%;
+  height: 100%;
   max-height: none;
-  aspect-ratio: 1171 / 1312;
+  aspect-ratio: auto;
   object-fit: contain;
 }
 
@@ -656,14 +655,21 @@ p {
 
 .atlas-strip {
   display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: minmax(176px, 220px);
+  grid-column: 2;
+  grid-row: 1;
+  grid-auto-flow: row;
+  grid-auto-columns: auto;
+  grid-auto-rows: 168px;
+  grid-template-columns: minmax(0, 1fr);
   gap: 10px;
+  height: 100%;
   min-width: 0;
-  overflow-x: auto;
-  padding: 2px 2px 12px;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 2px 8px 2px 2px;
   scrollbar-color: rgba(63, 111, 216, 0.28) transparent;
-  scroll-snap-type: x proximity;
+  scroll-snap-type: y proximity;
 }
 
 .atlas-card {
@@ -2842,7 +2848,7 @@ p {
   }
 
   .hero-wordmark {
-    font-size: 5.1rem;
+    font-size: 4.8rem;
   }
 
   .hero-shell,
@@ -2977,10 +2983,8 @@ p {
   }
 
   .hero-wordmark {
-    margin-top: -4px;
-    padding-right: 18px;
-    padding-bottom: 10px;
-    font-size: 4.05rem;
+    margin-top: 0;
+    font-size: 3.75rem;
   }
 
   h1 {
@@ -3036,12 +3040,21 @@ p {
   }
 
   .hero-atlas {
+    grid-template-columns: 1fr;
     gap: 10px;
+    height: auto;
     margin-top: 4px;
+  }
+
+  .atlas-feature {
+    grid-column: 1;
+    grid-row: auto;
+    height: auto;
   }
 
   .atlas-feature-media {
     min-height: 0;
+    height: auto;
     padding: 12px;
   }
 
@@ -3052,12 +3065,23 @@ p {
 
   .atlas-feature[data-figure="figure1"] .atlas-feature-media img {
     width: 100%;
+    height: auto;
     aspect-ratio: 1171 / 1312;
   }
 
   .atlas-strip {
+    grid-column: 1;
+    grid-row: auto;
+    grid-auto-flow: column;
     grid-auto-columns: minmax(152px, 72vw);
+    grid-auto-rows: auto;
+    grid-template-columns: none;
     gap: 8px;
+    height: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 2px 2px 12px;
+    scroll-snap-type: x proximity;
   }
 
   .atlas-media img {
@@ -3282,7 +3306,7 @@ p {
 
 @media (max-width: 360px) {
   .hero-wordmark {
-    font-size: 3.55rem;
+    font-size: 3.3rem;
   }
 
   .brand-text small {
