@@ -1444,12 +1444,13 @@ p {
 .viz-mode-shell {
   display: grid;
   gap: 7px;
-  justify-items: end;
+  grid-column: 2;
+  justify-items: center;
+  justify-self: center;
   min-width: max-content;
 }
 
 .viz-mode-label {
-  padding-right: 9px;
   color: var(--muted);
   font-size: 0.68rem;
   font-weight: 820;
@@ -1596,7 +1597,7 @@ p {
 
 .viz-control-panel {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) max-content;
+  grid-template-columns: minmax(0, 1fr) max-content minmax(0, 1fr);
   align-items: center;
   gap: 18px;
   padding: 14px 16px;
@@ -1612,6 +1613,7 @@ p {
 
 .viz-heading-block {
   display: flex;
+  grid-column: 1;
   align-items: center;
   gap: 14px;
   min-width: 0;
@@ -1654,7 +1656,7 @@ p {
 .real-viz-options {
   display: flex;
   flex-wrap: wrap;
-  gap: 7px;
+  gap: 10px;
   padding-top: 0;
 }
 
@@ -1683,8 +1685,8 @@ p {
   align-items: center;
   gap: 8px;
   min-width: 0;
-  min-height: 36px;
-  padding: 7px 12px;
+  min-height: 46px;
+  padding: 10px 16px;
   border: 1px solid var(--line);
   border-radius: 999px;
   color: var(--muted);
@@ -1724,14 +1726,14 @@ p {
 
 .real-viz-option span {
   color: var(--accent);
-  font-size: 0.66rem;
+  font-size: 0.7rem;
   font-weight: 840;
   text-transform: uppercase;
 }
 
 .real-viz-option strong {
   color: var(--ink);
-  font-size: 0.8rem;
+  font-size: 0.86rem;
   line-height: 1.18;
 }
 
@@ -2900,7 +2902,9 @@ p {
   }
 
   .viz-mode-shell {
-    justify-items: stretch;
+    grid-column: 1;
+    justify-items: center;
+    justify-self: center;
     min-width: 0;
   }
 
@@ -3191,6 +3195,11 @@ p {
     width: 100%;
   }
 
+  .viz-mode-shell {
+    width: 100%;
+    justify-items: stretch;
+  }
+
   .viz-mode-button {
     justify-content: center;
     min-height: 52px;
@@ -3228,17 +3237,17 @@ p {
 
   .real-viz-option {
     flex: 0 0 auto;
-    min-height: 32px;
-    padding: 6px 9px;
+    min-height: 42px;
+    padding: 9px 12px;
     scroll-snap-align: start;
   }
 
   .real-viz-option strong {
-    font-size: 0.74rem;
+    font-size: 0.8rem;
   }
 
   .real-viz-option span {
-    font-size: 0.6rem;
+    font-size: 0.62rem;
   }
 
   .result-panel {
